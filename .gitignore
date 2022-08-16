@@ -46,3 +46,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 lib/const/api_key.dart
+lib/model/movie_trend.g.dart

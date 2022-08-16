@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'movie_rating.g.dart';
+part 'movie_trend.g.dart';
 
 @JsonSerializable()
-class MovieRating {
-    MovieRating({
+class MovieTrend {
+    MovieTrend({
         this.page,
         this.results,
         this.totalPages,
@@ -18,18 +18,18 @@ class MovieRating {
     @JsonKey(name: 'total_results')
     int? totalResults;
 
-    factory MovieRating.fromJson(Map<String, dynamic> json) =>
-      _$MovieRatingFromJson(json);
+    factory MovieTrend.fromJson(Map<String, dynamic> json) =>
+      _$MovieTrendFromJson(json);
 
-    Map<String, dynamic> toJson() => _$MovieRatingToJson(this);
+    Map<String, dynamic> toJson() => _$MovieTrendToJson(this);
 
-    MovieRating copyWith({
+    MovieTrend copyWith({
         int? page,
         List<Result>? results,
         int? totalPages,
         int? totalResults,
     }) => 
-        MovieRating(
+        MovieTrend(
             page: page ?? this.page,
             results: results ?? this.results,
             totalPages: totalPages ?? this.totalPages,

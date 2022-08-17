@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+part 'movie_trend_know_for.g.dart';
+
 @JsonSerializable()
 class MovieTrendKnownFor {
   MovieTrendKnownFor({

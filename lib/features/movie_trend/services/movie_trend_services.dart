@@ -30,7 +30,7 @@ class MovieTrendServices {
       if (res.statusCode == 200){
         return compute(parseData, res.body);
       } else {
-        throw Exception(res.statusCode);
+        throw Exception(res.reasonPhrase);
       }
     } catch (e) {
       throw Exception(e);

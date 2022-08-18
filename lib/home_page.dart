@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -104,6 +105,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 200,
                 width: 330,
+                padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
@@ -116,6 +118,69 @@ class _HomePageState extends State<HomePage> {
                       16.0,
                     ),
                   ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'The Image',
+                          style: GoogleFonts.poppins(
+                            color: putih,
+                            fontSize: 15,
+                            textStyle: Theme.of(context).textTheme.labelMedium,
+                          ),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          CupertinoIcons.share,
+                          color: Colors.white,
+                          size: 16,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 47,
+                    ),
+                    Center(
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: jingga,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 2),
+                            child: Icon(
+                              CupertinoIcons.play_fill,
+                              color: putih,
+                              size: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 55,
+                    ),
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(CupertinoIcons.tickets, color: putih, size: 14),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          'Tickets Available',
+                          style: GoogleFonts.poppins(
+                            color: putih,
+                            fontSize: 9,
+                            textStyle: Theme.of(context).textTheme.labelMedium,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
               const SizedBox(

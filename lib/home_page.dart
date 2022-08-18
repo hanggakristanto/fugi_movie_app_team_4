@@ -195,6 +195,9 @@ class _HomePageState extends State<HomePage> {
                 height: 16,
               ),
               Swiper(
+                itemCount: 10,
+                viewportFraction: 0.8,
+                scale: 0.9,
                 layout: SwiperLayout.STACK,
                 customLayoutOption:
                     CustomLayoutOption(startIndex: -1, stateCount: 3)
@@ -223,7 +226,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 },
-                itemCount: 10,
               ),
               const SizedBox(
                 height: 16,

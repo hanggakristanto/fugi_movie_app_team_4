@@ -8,6 +8,7 @@ import '../../../constant/api_key.dart';
 import '../../../constant/global_variable.dart';
 import '../../../model/movie_trend.dart';
 
+// test
 class MovieTrendServices {
   List<MovieTrend> parseData(String responseBody) {
     final list = json.decode(responseBody).cast<Map<String, dynamic>>();
@@ -27,13 +28,13 @@ class MovieTrendServices {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      if (res.statusCode == 200){
+      if (res.statusCode == 200) {
         return compute(parseData, res.body);
       } else {
         throw Exception(res.reasonPhrase);
       }
     } catch (e) {
       throw Exception(e);
-    } 
+    }
   }
 }

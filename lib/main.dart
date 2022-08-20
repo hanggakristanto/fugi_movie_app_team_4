@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team_4/home_page.dart';
+import 'package:fugi_movie_app_team_4/page/select_branch.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: SelectBranch(),
     );
   }
 }

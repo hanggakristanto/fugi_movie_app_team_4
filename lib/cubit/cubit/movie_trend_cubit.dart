@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../data/model/movie_trend.dart';
-import '../../data/repositories/movie_trend_repositories.dart';
+import '../../data/repositories/movie_trend_repository.dart';
 
 part 'movie_trend_state.dart';
 
@@ -32,8 +32,8 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
       .then((newMovieTrend) {
         page++;
 
-        final posts = (state as MovieTrendLoading).oldMovieTrend;
-        posts.addAll(newMovieTrend);    
+        final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
+        movieTrend.addAll(newMovieTrend);
 
         emit(MovieTrendLoaded(newMovieTrend));
       });

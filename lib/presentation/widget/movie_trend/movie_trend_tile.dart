@@ -2,8 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:fugi_movie_app_team_4/data/model/movie_trend.dart';
+import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
 
-Widget movieTrendTile(MovieTrend movieTrend, BuildContext context) {
+Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
   log("movieTrendTile");
   log(movieTrend.toString());
     return Container(

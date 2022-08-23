@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
 import 'package:meta/meta.dart';
 
 import '../../data/model/movie_trend.dart';
@@ -20,7 +21,7 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
 
     final currentState = state;
 
-    var oldMovieTrend = <MovieTrend> [];
+    var oldMovieTrend = <MovieTrendResult> [];
 
     if(currentState is MovieTrendLoaded){
       oldMovieTrend = currentState.movieTrend;
@@ -31,7 +32,8 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
     repository.fetchMovieTrend(mediaType, timeWindow, page)
       .then((newMovieTrend) {
         page++;
-
+        print (newMovieTrend);
+        print('cubit');
         final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
         movieTrend.addAll(newMovieTrend);
 

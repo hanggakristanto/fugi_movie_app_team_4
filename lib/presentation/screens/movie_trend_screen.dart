@@ -1,10 +1,11 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubit/cubit/movie_trend_cubit.dart';
-import '../../data/model/movie_trend.dart';
+import '../../data/model/movie_trend_result.dart';
 import '../widget/common/loading_indicator.dart';
 import '../widget/movie_trend/movie_trend_tile.dart';
 
@@ -43,14 +44,19 @@ class MovieTrendScreen extends StatelessWidget {
           return loadingIndicator();
         }
 
-        List<MovieTrend> movieTrend = [];
+        List<MovieTrendResult> movieTrend = [];
         bool isLoading = false;
 
         if (state is MovieTrendLoading) {
           movieTrend = state.oldMovieTrend;
+          log('Screen Trend Loading');
+          print(movieTrend);
           isLoading = true;
         } else if (state is MovieTrendLoaded) {
+          log('Screen Trend Loaded');
+          
           movieTrend = state.movieTrend;
+          print(movieTrend);
         }
 
         return ListView.separated(

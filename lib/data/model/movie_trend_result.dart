@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'movie_trend_know_for.dart';
 
 part 'movie_trend_result.freezed.dart';
 part 'movie_trend_result.g.dart';
@@ -9,15 +8,24 @@ part 'movie_trend_result.g.dart';
 abstract class MovieTrendResult with _$MovieTrendResult {
     const factory MovieTrendResult({
         required bool adult,
+        required String backdrop_path,
         required int id,
-        required String name,
-        required String originalName,
-        required String mediaType,
-        required double popularity,
-        required int gender,
-        required String knownForDepartment,
-        required String profilePath,
-        required List<MovieTrendKnownFor> knownFor,
+        String? title,
+        String? original_language,
+        String? original_title,
+        String? overview,
+        String? poster_path,
+        String? media_type,
+        List<int>? genre_ids,
+        double? popularity,
+        DateTime? release_date,
+        bool? video,
+        double? vote_average,
+        int? vote_count,
+        String? name,
+        String? original_name,
+        DateTime? first_air_date,
+        List<String>? origin_country,
     }) = _MovieTrendResult;
 
     factory MovieTrendResult.fromJson(Map<String, dynamic> json) => _$MovieTrendResultFromJson(json);

@@ -50,13 +50,13 @@ class MovieTrendScreen extends StatelessWidget {
         if (state is MovieTrendLoading) {
           movieTrend = state.oldMovieTrend;
           log('Screen Trend Loading');
-          print(movieTrend);
+          // print(movieTrend);
           isLoading = true;
         } else if (state is MovieTrendLoaded) {
           log('Screen Trend Loaded');
           
           movieTrend = state.movieTrend;
-          print(movieTrend);
+          // print(movieTrend);
         }
 
         return ListView.separated(

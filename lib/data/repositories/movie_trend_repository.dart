@@ -15,9 +15,11 @@ class MovieTrendRepository {
   Future<List<MovieTrendResult>> fetchMovieTrend(String mediaType,
   // Future<Map<String, dynamic>> fetchMovieTrend(String mediaType,
       String timeWindow, int page) async {
+        log("repositories");
+        log("page = $page");
     final movieTrends = await service.fetchAllTrend(mediaType, timeWindow, page);
-    log(movieTrends.toString());
-    log("end repo");
+    // log(movieTrends.toString());
+    // log("end repo");
     // movieTrends.
     return movieTrends.map(
         (e) => MovieTrendResult.fromJson(e)

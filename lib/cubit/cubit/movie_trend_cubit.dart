@@ -1,8 +1,9 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
 import 'package:meta/meta.dart';
 
-import '../../data/model/movie_trend.dart';
 import '../../data/repositories/movie_trend_repository.dart';
 
 part 'movie_trend_state.dart';
@@ -24,7 +25,9 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
     var oldMovieTrend = <MovieTrendResult> [];
 
     if(currentState is MovieTrendLoaded){
+      log("panjang current stat = ${currentState.movieTrend.length}");
       oldMovieTrend = currentState.movieTrend;
+      log("oldMovieTrend length = ${oldMovieTrend.length}");
     }
 
     emit(MovieTrendLoading(oldMovieTrend, isFirstFetch: page == 1));
@@ -32,12 +35,14 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
     repository.fetchMovieTrend(mediaType, timeWindow, page)
       .then((newMovieTrend) {
         page++;
-        print (newMovieTrend);
-        print('cubit');
+        // log("cubit");
+        log("page = $page");
+        // log("newMovieTrend length = ${newMovieTrend.length}");
         final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
+        // log("movieTrend befoore length = ${movieTrend.length}");
         movieTrend.addAll(newMovieTrend);
-
-        emit(MovieTrendLoaded(newMovieTrend));
+        // log("movieTrend length = ${movieTrend.length}");
+        emit(MovieTrendLoaded(movieTrend));
       });
   }
 }

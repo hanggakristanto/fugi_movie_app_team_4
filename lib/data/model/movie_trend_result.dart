@@ -8,7 +8,7 @@ part 'movie_trend_result.g.dart';
 abstract class MovieTrendResult with _$MovieTrendResult {
     const factory MovieTrendResult({
         required bool adult,
-        required String backdrop_path,
+        String? backdrop_path,
         required int id,
         String? title,
         String? original_language,

@@ -17,10 +17,10 @@ class MovieTrendRepository {
     log(movieTrends.toString());
     log("end repo");
     // movieTrends.
-    // return movieTrends.map(
-    //     (e) => MovieTrend.fromJson(e)
-    //   ).toList();
-    List<MovieTrend> a = [];
-    return a;
+    return movieTrends['results'].map(
+        (e) => MovieTrend.fromJson(e)
+      ).toList();
+    // List<MovieTrend> a = [];
+    // return a;
   }
 }

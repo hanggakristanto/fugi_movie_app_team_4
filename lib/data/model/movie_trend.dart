@@ -1,40 +1,22 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'movie_trend_result.dart';
 
+part 'movie_trend.freezed.dart';
 part 'movie_trend.g.dart';
 
-@JsonSerializable()
-class MovieTrend {
-  MovieTrend({
-    this.page,
-    this.results,
-    this.totalPages,
-    this.totalResults,
-  });
+@freezed
+abstract class MovieTrend with _$MovieTrend {
+    const factory MovieTrend({
+        required int page,
+        required List<MovieTrendResult> results,
+        required int totalPages,
+        required int totalResults,
+    }) = _MovieTrend;
 
-  int? page;
-  List<MovieTrendResult>? results;
-  @JsonKey(name: 'total_pages')
-  int? totalPages;
-  @JsonKey(name: 'total_results')
-  int? totalResults;
-
-  factory MovieTrend.fromJson(Map<String, dynamic> json) =>
-      _$MovieTrendFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MovieTrendToJson(this);
-
-  MovieTrend copyWith({
-    int? page,
-    List<MovieTrendResult>? results,
-    int? totalPages,
-    int? totalResults,
-  }) =>
-      MovieTrend(
-        page: page ?? this.page,
-        results: results ?? this.results,
-        totalPages: totalPages ?? this.totalPages,
-        totalResults: totalResults ?? this.totalResults,
-      );
+    factory MovieTrend.fromJson(Map<String, dynamic> json) => _$MovieTrendFromJson(json);
 }
+
+
+
+

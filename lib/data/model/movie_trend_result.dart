@@ -1,67 +1,24 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'movie_trend_know_for.dart';
 
+part 'movie_trend_result.freezed.dart';
 part 'movie_trend_result.g.dart';
 
-@JsonSerializable()
-class MovieTrendResult {
-  MovieTrendResult({
-    this.adult,
-    this.id,
-    this.name,
-    this.originalName,
-    this.mediaType,
-    this.popularity,
-    this.gender,
-    this.knownForDepartment,
-    this.profilePath,
-    this.knownFor,
-  });
+@freezed
+abstract class MovieTrendResult with _$MovieTrendResult {
+    const factory MovieTrendResult({
+        required bool adult,
+        required int id,
+        required String name,
+        required String originalName,
+        required String mediaType,
+        required double popularity,
+        required int gender,
+        required String knownForDepartment,
+        required String profilePath,
+        required List<MovieTrendKnownFor> knownFor,
+    }) = _MovieTrendResult;
 
-  bool? adult;
-  int? id;
-  String? name;
-  @JsonKey(name: 'original_name')
-  String? originalName;
-  @JsonKey(name: 'media_type')
-  String? mediaType;
-  double? popularity;
-  int? gender;
-  @JsonKey(name: 'known_for_department')
-  String? knownForDepartment;
-  @JsonKey(name: 'profile_path')
-  String? profilePath;
-  @JsonKey(name: 'known_for')
-  List<MovieTrendKnownFor>? knownFor;
-
-  factory MovieTrendResult.fromJson(Map<String, dynamic> json) =>
-      _$MovieTrendResultFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MovieTrendResultToJson(this);
-
-  MovieTrendResult copyWith({
-    bool? adult,
-    int? id,
-    String? name,
-    String? originalName,
-    String? mediaType,
-    double? popularity,
-    int? gender,
-    String? knownForDepartment,
-    String? profilePath,
-    List<MovieTrendKnownFor>? knownFor,
-  }) =>
-      MovieTrendResult(
-        adult: adult ?? this.adult,
-        id: id ?? this.id,
-        name: name ?? this.name,
-        originalName: originalName ?? this.originalName,
-        mediaType: mediaType ?? this.mediaType,
-        popularity: popularity ?? this.popularity,
-        gender: gender ?? this.gender,
-        knownForDepartment: knownForDepartment ?? this.knownForDepartment,
-        profilePath: profilePath ?? this.profilePath,
-        knownFor: knownFor ?? this.knownFor,
-      );
+    factory MovieTrendResult.fromJson(Map<String, dynamic> json) => _$MovieTrendResultFromJson(json);
 }

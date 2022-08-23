@@ -43,6 +43,7 @@ app.*.map.json
 
 # generated related
 *.g.dart
+*.freezed.dart
 
 # Android Studio will place build artifacts here
 /android/app/debug

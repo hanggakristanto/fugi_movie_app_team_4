@@ -10,9 +10,9 @@ import '../../../constant/global_variable.dart';
 class MovieTrendServices {
   Future<Map<String, dynamic>> fetchAllTrend(String mediaType,
       String timeWindow, int page) async {
-        log('url = $url/trending/$mediaType/$timeWindow?api_key=$apiKey&page=$page');
+        log('url = $url/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
     Uri uri =
-        Uri.parse('$url/trending/$mediaType/$timeWindow?api_key=$apiKey&page=$page');
+        Uri.parse('$url/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
     try {
       final http.Response res = await http.get(
         uri,

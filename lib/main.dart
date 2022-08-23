@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SelectBranch(),
-      home: BlocProvider(
-        create: (context) => MovieTrendCubit(repository),
-        child: MovieTrendScreen(),
-      ),
+      home: SelectBranch(),
+      // home: BlocProvider(
+      //   create: (context) => MovieTrendCubit(repository),
+      //   child: MovieTrendScreen(),
+      // ),
     );
   }
 }

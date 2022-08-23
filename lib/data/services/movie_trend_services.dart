@@ -12,9 +12,9 @@ class MovieTrendServices {
   Future<List<dynamic>> fetchAllTrend(String mediaType,
   // Future<Map<String, dynamic>> fetchAllTrend(String mediaType,
       String timeWindow, int page) async {
-        log('url = $url/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
+        log('url = ${GlobalVariable.url}/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
     Uri uri =
-        Uri.parse('$url/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
+        Uri.parse('${GlobalVariable.url}/trending/$mediaType/$timeWindow?api_key=${ApiKey.APIKEY}&page=$page');
     try {
       final http.Response res = await http.get(
         uri,

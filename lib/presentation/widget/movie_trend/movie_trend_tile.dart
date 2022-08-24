@@ -28,8 +28,8 @@ Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
               Text(
                 "$title",
                 style: const TextStyle(
-                  color: Colors.yellow,
-                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

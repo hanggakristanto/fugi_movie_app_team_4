@@ -102,84 +102,452 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 16,
               ),
-              Container(
-                height: 200,
-                width: 330,
-                padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "https://picsum.photos/2000",
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      16.0,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'The Image',
-                          style: GoogleFonts.poppins(
-                            color: putih,
-                            fontSize: 15,
-                            textStyle: Theme.of(context).textTheme.labelMedium,
+                    Container(
+                      height: 200,
+                      width: 140,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/2001",
                           ),
+                          fit: BoxFit.cover,
                         ),
-                        const Spacer(),
-                        const Icon(
-                          CupertinoIcons.share,
-                          color: Colors.white,
-                          size: 16,
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 47,
-                    ),
-                    Center(
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: jingga,
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 2),
-                            child: Icon(
-                              CupertinoIcons.play_fill,
-                              color: putih,
-                              size: 16,
-                            ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
                           ),
                         ),
                       ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'The Image',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 15,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                CupertinoIcons.share,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 47,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: jingga,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 2),
+                                    child: Icon(
+                                      CupertinoIcons.play_fill,
+                                      color: putih,
+                                      size: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 55,
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(CupertinoIcons.tickets,
+                                  color: putih, size: 14),
+                              const SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Tickets Available',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 9,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                     const SizedBox(
-                      height: 55,
+                      width: 16,
                     ),
-                    const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Icon(CupertinoIcons.tickets, color: putih, size: 14),
-                        const SizedBox(
-                          width: 4,
+                    Container(
+                      height: 200,
+                      width: 140,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/2039",
+                          ),
+                          fit: BoxFit.cover,
                         ),
-                        Text(
-                          'Tickets Available',
-                          style: GoogleFonts.poppins(
-                            color: putih,
-                            fontSize: 9,
-                            textStyle: Theme.of(context).textTheme.labelMedium,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
                           ),
                         ),
-                      ],
-                    )
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'The Image',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 15,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                CupertinoIcons.share,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 47,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: jingga,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 2),
+                                    child: Icon(
+                                      CupertinoIcons.play_fill,
+                                      color: putih,
+                                      size: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 55,
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(CupertinoIcons.tickets,
+                                  color: putih, size: 14),
+                              const SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Tickets Available',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 9,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Container(
+                      height: 200,
+                      width: 140,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/2034",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'The Image',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 15,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                CupertinoIcons.share,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 47,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: jingga,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 2),
+                                    child: Icon(
+                                      CupertinoIcons.play_fill,
+                                      color: putih,
+                                      size: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 55,
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(CupertinoIcons.tickets,
+                                  color: putih, size: 14),
+                              const SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Tickets Available',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 9,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Container(
+                      height: 200,
+                      width: 140,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/2233",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'The Image',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 15,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                CupertinoIcons.share,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 47,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: jingga,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 2),
+                                    child: Icon(
+                                      CupertinoIcons.play_fill,
+                                      color: putih,
+                                      size: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 55,
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(CupertinoIcons.tickets,
+                                  color: putih, size: 14),
+                              const SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Tickets Available',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 9,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    Container(
+                      height: 200,
+                      width: 140,
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/2231",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'The Image',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 15,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                CupertinoIcons.share,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 47,
+                          ),
+                          Center(
+                            child: GestureDetector(
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: jingga,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 2),
+                                    child: Icon(
+                                      CupertinoIcons.play_fill,
+                                      color: putih,
+                                      size: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 55,
+                          ),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(CupertinoIcons.tickets,
+                                  color: putih, size: 14),
+                              const SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Tickets Available',
+                                style: GoogleFonts.poppins(
+                                  color: putih,
+                                  fontSize: 9,
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -249,6 +617,110 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               Text(
+                'My List',
+                style: GoogleFonts.poppins(
+                  color: putih,
+                  fontSize: 22,
+                  textStyle: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      height: 200.0,
+                      width: 140,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            "https://picsum.photos/1010",
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 200.0,
+                        width: 140,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://picsum.photos/2200",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 200.0,
+                        width: 140,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://picsum.photos/1003",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: 200.0,
+                        width: 140,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://picsum.photos/1007",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
                 'Now Showing',
                 style: GoogleFonts.poppins(
                   color: putih,
@@ -279,7 +751,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          "https://picsum.photos/2000",
+                          "https://picsum.photos/2400",
                         ),
                         fit: BoxFit.cover,
                       ),

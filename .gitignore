@@ -49,7 +49,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-lib/constant/api_key.dart
 linux/flutter/generated_plugin_registrant.cc
 linux/flutter/generated_plugin_registrant.h
 linux/flutter/generated_plugins.cmake

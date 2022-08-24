@@ -13,7 +13,7 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
 
   int page = 1;
   String mediaType = 'all';
-  String timeWindow = 'day';
+  String timeWindow = 'week';
 
   final MovieTrendRepository repository;
 

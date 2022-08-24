@@ -15,7 +15,7 @@ Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
     },
     child: Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(4.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,8 +28,8 @@ Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
               Text(
                 "$title",
                 style: const TextStyle(
-                  color: Colors.yellow,
-                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

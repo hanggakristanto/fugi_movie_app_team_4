@@ -569,7 +569,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 // Nanti jadikan widget
                 SizedBox(
-                  height: 500,
+                  height: 300,
                   child: MovieTrendHorizontal(),
                 ),
               ],

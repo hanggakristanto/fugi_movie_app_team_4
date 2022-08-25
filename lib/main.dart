@@ -24,11 +24,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: HomeScreen(),
-      // home: BlocProvider(
-      //   create: (context) => MovieTrendCubit(repository),
-      //   child: MovieTrendScreen(),
-      // ),
+      // home: HomeScreen(),
+      home: BlocProvider(
+        create: (context) => MovieTrendCubit(repository),
+        // child: MovieTrendScreen(),
+        child: HomeScreen(),
+      ),
     );
   }
 }

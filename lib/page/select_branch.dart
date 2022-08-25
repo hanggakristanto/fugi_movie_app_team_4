@@ -36,540 +36,533 @@ class SelectBranch extends StatelessWidget {
       //   leading: const Icon(CupertinoIcons.back),
       // ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: ListView(
+          child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
           ),
-          scrollDirection: Axis.vertical,
-          children: [
-            const SizedBox(
-              width: 330,
-              height: 48,
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 16, right: 16),
-              width: double.maxFinite,
-              height: 48,
-              decoration: BoxDecoration(
-                color: abusedang,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    25.0,
-                  ),
-                ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                width: 330,
+                height: 48,
               ),
-              child: Row(
-                children: [
-                  Icon(
-                    CupertinoIcons.search,
-                    color: abutebel,
-                    size: 20,
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.text,
-                      cursorColor: abutebel,
-                      style: GoogleFonts.poppins(
-                        color: abutebel,
-                        fontSize: 13,
-                        textStyle: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      decoration: InputDecoration.collapsed(
-                          hintText: 'Select Malls Or Branch',
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            color: abutebel,
-                          )),
+              Container(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                width: double.maxFinite,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      25.0,
                     ),
                   ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Icon(
-                    CupertinoIcons.slider_horizontal_3,
-                    color: abutebel,
-                    size: 20,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Nearby',
-              style: GoogleFonts.poppins(
-                color: putih,
-                fontSize: 16,
-                textStyle: Theme.of(context).textTheme.labelMedium,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                right: 16,
-              ),
-              height: 113.0,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: abusedang,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    10.0,
-                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.search,
+                      color: abutebel,
+                      size: 20,
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.text,
+                        cursorColor: abutebel,
+                        style: GoogleFonts.poppins(
+                          color: abutebel,
+                          fontSize: 13,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
+                        ),
+                        decoration: InputDecoration.collapsed(
+                            hintText: 'Select Malls Or Branch',
+                            hintStyle: TextStyle(
+                              fontSize: 13,
+                              color: abutebel,
+                            )),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Icon(
+                      CupertinoIcons.slider_horizontal_3,
+                      color: abutebel,
+                      size: 20,
+                    ),
+                  ],
                 ),
               ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 113.0,
-                    width: 113,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: const NetworkImage(
-                          "https://picsum.photos/2020",
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Nearby',
+                style: GoogleFonts.poppins(
+                  color: putih,
+                  fontSize: 16,
+                  textStyle: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                  right: 16,
+                ),
+                height: 113.0,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10.0,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 113.0,
+                      width: 113,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                            "https://picsum.photos/2116",
+                          ),
+                          filterQuality: FilterQuality.high,
+                          repeat: ImageRepeat.noRepeat,
+                          onError: (exception, stackTrace) =>
+                              const CircularProgressIndicator.adaptive(),
+                          fit: BoxFit.cover,
                         ),
-                        filterQuality: FilterQuality.high,
-                        repeat: ImageRepeat.noRepeat,
-                        onError: (exception, stackTrace) =>
-                            const CircularProgressIndicator.adaptive(),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(
-                          10.0,
-                        ),
-                        bottomLeft: Radius.circular(
-                          10.0,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(
+                            10.0,
+                          ),
+                          bottomLeft: Radius.circular(
+                            10.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
+                    Positioned(
+                      left: 120,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Pondok Indah Mall',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Bintaro Plaza',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 13,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 59,
+                              height: 18,
                             ),
-                            Icon(
-                              CupertinoIcons.star_fill,
-                              color: kuning,
-                              size: 13,
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.ticket,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'PHP 279',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 2,
+                              height: 8,
                             ),
-                            Text(
-                              '4.9',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.chair,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  '6 Cinemas',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 18,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 139),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.ticket,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'PHP 279',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.chair,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      '6 Cinemas',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ],
+                      ),
                     ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Suggested ',
-              style: GoogleFonts.poppins(
-                color: putih,
-                fontSize: 16,
-                textStyle: Theme.of(context).textTheme.labelMedium,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                right: 16,
-              ),
-              height: 113.0,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: abusedang,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    10.0,
-                  ),
+                    Positioned(
+                      left: 300,
+                      top: 10,
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.star_fill,
+                            color: kuning,
+                            size: 13,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            '4.9',
+                            style: GoogleFonts.poppins(
+                              letterSpacing: 1,
+                              color: putih,
+                              fontSize: 13,
+                              textStyle:
+                                  Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 113.0,
-                    width: 113,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: const NetworkImage(
-                          "https://picsum.photos/2022",
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Suggested ',
+                style: GoogleFonts.poppins(
+                  color: putih,
+                  fontSize: 16,
+                  textStyle: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                  right: 16,
+                ),
+                height: 113.0,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10.0,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 113.0,
+                      width: 113,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                            "https://picsum.photos/2316",
+                          ),
+                          filterQuality: FilterQuality.high,
+                          repeat: ImageRepeat.noRepeat,
+                          onError: (exception, stackTrace) =>
+                              const CircularProgressIndicator.adaptive(),
+                          fit: BoxFit.cover,
                         ),
-                        filterQuality: FilterQuality.high,
-                        repeat: ImageRepeat.noRepeat,
-                        onError: (exception, stackTrace) =>
-                            const CircularProgressIndicator.adaptive(),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(
-                          10.0,
-                        ),
-                        bottomLeft: Radius.circular(
-                          10.0,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(
+                            10.0,
+                          ),
+                          bottomLeft: Radius.circular(
+                            10.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
+                    Positioned(
+                      left: 120,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Pondok Indah Mall',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Bintaro Plaza',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 13,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 59,
+                              height: 18,
                             ),
-                            Icon(
-                              CupertinoIcons.star_fill,
-                              color: kuning,
-                              size: 13,
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.ticket,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'PHP 279',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 2,
+                              height: 8,
                             ),
-                            Text(
-                              '4.9',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.chair,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  '6 Cinemas',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 18,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 139),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.ticket,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'PHP 279',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.chair,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      '6 Cinemas',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ],
+                      ),
                     ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                right: 16,
-              ),
-              height: 113.0,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: abusedang,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(
-                    10.0,
-                  ),
+                    Positioned(
+                      left: 300,
+                      top: 10,
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.star_fill,
+                            color: kuning,
+                            size: 13,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            '4.9',
+                            style: GoogleFonts.poppins(
+                              letterSpacing: 1,
+                              color: putih,
+                              fontSize: 13,
+                              textStyle:
+                                  Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 113.0,
-                    width: 113,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: const NetworkImage(
-                          "https://picsum.photos/2023",
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                  right: 16,
+                ),
+                height: 113.0,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10.0,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 113.0,
+                      width: 113,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                            "https://picsum.photos/2026",
+                          ),
+                          filterQuality: FilterQuality.high,
+                          repeat: ImageRepeat.noRepeat,
+                          onError: (exception, stackTrace) =>
+                              const CircularProgressIndicator.adaptive(),
+                          fit: BoxFit.cover,
                         ),
-                        filterQuality: FilterQuality.high,
-                        repeat: ImageRepeat.noRepeat,
-                        onError: (exception, stackTrace) =>
-                            const CircularProgressIndicator.adaptive(),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(
-                          10.0,
-                        ),
-                        bottomLeft: Radius.circular(
-                          10.0,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(
+                            10.0,
+                          ),
+                          bottomLeft: Radius.circular(
+                            10.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
+                    Positioned(
+                      left: 120,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Pondok Indah Mall',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Bintaro Plaza',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 13,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 59,
+                              height: 18,
                             ),
-                            Icon(
-                              CupertinoIcons.star_fill,
-                              color: kuning,
-                              size: 13,
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.ticket,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'PHP 279',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                             const SizedBox(
-                              width: 2,
+                              height: 8,
                             ),
-                            Text(
-                              '4.9',
-                              style: GoogleFonts.poppins(
-                                letterSpacing: 1,
-                                color: putih,
-                                fontSize: 13,
-                                textStyle:
-                                    Theme.of(context).textTheme.labelMedium,
-                              ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.chair,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  '6 Cinemas',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 18,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 139),
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      CupertinoIcons.ticket,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'PHP 279',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.chair,
-                                      color: putih,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      '6 Cinemas',
-                                      style: GoogleFonts.poppins(
-                                        letterSpacing: 1,
-                                        color: putih,
-                                        fontSize: 10,
-                                        textStyle: Theme.of(context)
-                                            .textTheme
-                                            .labelMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ]),
-                        ),
-                      ],
+                      ),
                     ),
-                  )
-                ],
+                    Positioned(
+                      left: 300,
+                      top: 10,
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.star_fill,
+                            color: kuning,
+                            size: 13,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            '4.9',
+                            style: GoogleFonts.poppins(
+                              letterSpacing: 1,
+                              color: putih,
+                              fontSize: 13,
+                              textStyle:
+                                  Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       )),
     );

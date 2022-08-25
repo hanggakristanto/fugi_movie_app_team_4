@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SelectBranch extends StatelessWidget {
-  const SelectBranch({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  static const String routeName = '/home';
+  
+  const HomeScreen({Key? key}) : super(key: key);
 
   final Color jingga = const Color.fromRGBO(217, 134, 57, 1);
   final Color gelap = const Color.fromRGBO(30, 31, 39, 1);

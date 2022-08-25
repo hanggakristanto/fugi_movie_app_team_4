@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team_4/presentation/widget/common/text_header.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -103,14 +104,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Nearby',
-                style: GoogleFonts.poppins(
-                  color: putih,
-                  fontSize: 16,
-                  textStyle: Theme.of(context).textTheme.labelMedium,
-                ),
-              ),
+              textHeader(context, 'Nearby'),
               const SizedBox(
                 height: 20,
               ),
@@ -261,14 +255,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Suggested ',
-                style: GoogleFonts.poppins(
-                  color: putih,
-                  fontSize: 16,
-                  textStyle: Theme.of(context).textTheme.labelMedium,
-                ),
-              ),
+              textHeader(context, 'Suggested'),
               const SizedBox(
                 height: 20,
               ),
@@ -563,6 +550,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              
             ],
           ),
         ),

@@ -21,14 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: (settings) => generateRoute(settings),
-      // home: HomeScreen(),
-      home: BlocProvider(
-        create: (context) => MovieTrendCubit(repository),
-        // child: MovieTrendScreen(),
-        child: HomeScreen(),
+    return BlocProvider(
+      create: (context) => MovieTrendCubit(repository),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: (settings) => generateRoute(settings),
+        home: HomeScreen(),
       ),
     );
   }

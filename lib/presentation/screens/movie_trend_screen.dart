@@ -11,6 +11,8 @@ import '../widget/common/loading_indicator.dart';
 import '../widget/movie_trend/movie_trend_tile.dart';
 
 class MovieTrendScreen extends StatelessWidget {
+  static const String routeName = '/movie_trend_screen';
+
   MovieTrendScreen({Key? key}) : super(key: key);
 
   final scrollController = ScrollController();

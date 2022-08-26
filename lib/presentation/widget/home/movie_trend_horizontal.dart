@@ -69,11 +69,10 @@ class MovieTrendHorizontal extends StatelessWidget {
           controller: scrollController,
           itemBuilder: (context, index) {
             if (index < movieTrend.length)
-              // return const Text('WIP');
-            // return movieTrendTile(movieTrend[index], context);
-            return Image.network(
-                '${GlobalVariable.urlImage}${movieTrend[index].backdrop_path}',
-              );
+            return movieTrendTile(movieTrend[index], context);
+            // return Image.network(
+            //     '${GlobalVariable.urlImage}${movieTrend[index].backdrop_path}',
+            //   );
             else {
               Timer(const Duration(milliseconds: 30), () {
                 scrollController

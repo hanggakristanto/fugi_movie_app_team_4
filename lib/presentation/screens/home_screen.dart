@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team_4/presentation/screens/movie_trend_screen.dart';
+import 'package:fugi_movie_app_team_4/presentation/widget/common/text_header.dart';
+import 'package:fugi_movie_app_team_4/presentation/widget/home/movie_trend_horizontal.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SelectBranch extends StatelessWidget {
-  const SelectBranch({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  static const String routeName = '/home';
+
+  const HomeScreen({Key? key}) : super(key: key);
 
   final Color jingga = const Color.fromRGBO(217, 134, 57, 1);
   final Color gelap = const Color.fromRGBO(30, 31, 39, 1);
@@ -14,6 +19,13 @@ class SelectBranch extends StatelessWidget {
   final Color abugelap = const Color.fromRGBO(72, 71, 71, 1);
   final Color kuning = const Color.fromRGBO(241, 222, 48, 1);
   final Color putih = Colors.white;
+
+  void navigateToMovieScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      MovieTrendScreen.routeName,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +48,13 @@ class SelectBranch extends StatelessWidget {
       //   leading: const Icon(CupertinoIcons.back),
       // ),
       body: SafeArea(
-          child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            scrollDirection: Axis.vertical,
             children: [
               const SizedBox(
                 width: 330,
@@ -101,13 +113,11 @@ class SelectBranch extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Nearby',
-                style: GoogleFonts.poppins(
-                  color: putih,
-                  fontSize: 16,
-                  textStyle: Theme.of(context).textTheme.labelMedium,
-                ),
+              TextHeader(
+                text: 'Nearby',
+                onTap: (() {
+                
+                }),
               ),
               const SizedBox(
                 height: 20,
@@ -167,8 +177,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 13,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -192,8 +203,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -217,8 +229,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -259,13 +272,11 @@ class SelectBranch extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Suggested ',
-                style: GoogleFonts.poppins(
-                  color: putih,
-                  fontSize: 16,
-                  textStyle: Theme.of(context).textTheme.labelMedium,
-                ),
+              TextHeader(
+                text: 'Suggested', 
+                onTap: (() {
+                
+                }),
               ),
               const SizedBox(
                 height: 20,
@@ -325,8 +336,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 13,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -350,8 +362,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -375,8 +388,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -472,8 +486,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 13,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -497,8 +512,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -522,8 +538,9 @@ class SelectBranch extends StatelessWidget {
                                     letterSpacing: 1,
                                     color: putih,
                                     fontSize: 10,
-                                    textStyle:
-                                        Theme.of(context).textTheme.labelMedium,
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium,
                                   ),
                                 ),
                               ],
@@ -561,10 +578,27 @@ class SelectBranch extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextHeader(
+                text: 'Trending', 
+                onTap: (() {
+                  navigateToMovieScreen(context);
+                }),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              // Nanti jadikan widget
+              SizedBox(
+                height: 300,
+                child: MovieTrendHorizontal(),
+              ),
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

@@ -11,6 +11,6 @@ Bila tidak paham ini apa silahkan cari aplikasi soal build runner flutter di int
 4. kalau mau merge ke branch master:
     1. di LOCAL PC/LAPTOP/MAC lakuin commit dan push dulu semua perubahan yang sudah kamu lakukan di lokalmu
     2. jalanin : git pull origin master
-    3. a. bila lancar tidak ada conflict: push aja lagi ke github dan bikin pull request buat nge merge
-        b. bila conflict coba tanyakan dulu di grup
+        1. bila lancar tidak ada conflict: push aja lagi ke github dan bikin pull request buat nge merge
+        2. bila conflict coba tanyakan dulu di grup
 5. Mas Dita ada yang kurang?

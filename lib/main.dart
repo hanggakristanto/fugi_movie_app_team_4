@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fugi_movie_app_team_4/page/select_branch.dart';
+import 'package:fugi_movie_app_team_4/presentation/screens/home_screen.dart';
 
 import 'cubit/cubit/movie_trend_cubit.dart';
 import 'data/repositories/movie_trend_repository.dart';
 import 'data/services/movie_trend_services.dart';
 import 'presentation/screens/movie_trend_screen.dart';
+import 'router.dart';
 
 void main() {
   runApp(MyApp(
@@ -20,13 +21,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SelectBranch(),
-      // home: BlocProvider(
-      //   create: (context) => MovieTrendCubit(repository),
-      //   child: MovieTrendScreen(),
-      // ),
+    return BlocProvider(
+      create: (context) => MovieTrendCubit(repository),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: (settings) => generateRoute(settings),
+        home: HomeScreen(),
+      ),
     );
   }
 }

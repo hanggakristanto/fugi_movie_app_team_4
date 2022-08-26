@@ -4,16 +4,15 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../constant/global_colors.dart';
-import '../../cubit/cubit/movie_trend_cubit.dart';
-import '../../data/model/movie_trend_result.dart';
-import '../widget/common/loading_indicator.dart';
-import '../widget/movie_trend/movie_trend_tile.dart';
+import '../../../constant/global_colors.dart';
+import '../../../constant/global_variable.dart';
+import '../../../cubit/cubit/movie_trend_cubit.dart';
+import '../../../data/model/movie_trend_result.dart';
+import '../common/loading_indicator.dart';
+import '../movie_trend/movie_trend_tile.dart';
 
-class MovieTrendScreen extends StatelessWidget {
-  static const String routeName = '/movie_trend_screen';
-
-  MovieTrendScreen({Key? key}) : super(key: key);
+class MovieTrendHorizontal extends StatelessWidget {
+  MovieTrendHorizontal({Key? key}) : super(key: key);
 
   final scrollController = ScrollController();
 
@@ -32,24 +31,19 @@ class MovieTrendScreen extends StatelessWidget {
     setupScrollController(context);
     BlocProvider.of<MovieTrendCubit>(context).loadMovieTrend();
 
-    return Scaffold(
-      backgroundColor: GlobalColors.gelap,
-      appBar: AppBar(
-        backgroundColor: GlobalColors.gelap,
-        title: const Text("Movie Trend"),
-      ),
-      body: Column(
-        children: [
-          Flexible(
-            flex: 1,
-            child: _movieTrendGridList(),
-          ),
-        ],
-      ),
-    );
+    // return  Column(
+    //     children: [
+    //       Flexible(
+    //         flex: 1,
+    //         // child: _movieTrendGridList(),
+    //         child: Text('Nyobain'),
+    //       ),
+    //     ],
+    //   );
+    return _movieHorizontalList();
   }
 
-  Widget _movieTrendGridList() {
+  Widget _movieHorizontalList() {
     return BlocBuilder<MovieTrendCubit, MovieTrendState>(
       builder: ((context, state) {
         if (state is MovieTrendLoading && state.isFirstFetch) {
@@ -66,33 +60,29 @@ class MovieTrendScreen extends StatelessWidget {
           isLoading = true;
         } else if (state is MovieTrendLoaded) {
           log('Screen Trend Loaded');
-
           movieTrend = state.movieTrend;
         }
-        // print(movieTrend);
-        return GridView.builder(
+
+        return ListView.builder(
+          scrollDirection: Axis.horizontal,
+          // shrinkWrap: true,
           controller: scrollController,
-          scrollDirection: Axis.vertical,
-          padding: const EdgeInsets.only(
-            left: 5,
-          ),
-          itemCount: movieTrend.length + (isLoading ? 1 : 0),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.7,
-            mainAxisSpacing: 10,
-          ),
           itemBuilder: (context, index) {
-            if (index < movieTrend.length) {
-              return movieTrendTile(movieTrend[index], context);
-            } else {
+            if (index < movieTrend.length)
+            return movieTrendTile(movieTrend[index], context);
+            // return Image.network(
+            //     '${GlobalVariable.urlImage}${movieTrend[index].backdrop_path}',
+            //   );
+            else {
               Timer(const Duration(milliseconds: 30), () {
                 scrollController
                     .jumpTo(scrollController.position.maxScrollExtent);
               });
+
               return loadingIndicator();
             }
           },
+          itemCount: movieTrend.length + (isLoading ? 1 : 0),
         );
       }),
     );

@@ -61,11 +61,11 @@ class MovieTrendScreen extends StatelessWidget {
 
         if (state is MovieTrendLoading) {
           movieTrend = state.oldMovieTrend;
-          log('Screen Trend Loading');
+          // log('Screen Trend Loading');
           // print(movieTrend);
           isLoading = true;
         } else if (state is MovieTrendLoaded) {
-          log('Screen Trend Loaded');
+          // log('Screen Trend Loaded');
 
           movieTrend = state.movieTrend;
         }
@@ -78,13 +78,18 @@ class MovieTrendScreen extends StatelessWidget {
           ),
           itemCount: movieTrend.length + (isLoading ? 1 : 0),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.7,
+            crossAxisCount: 3,
+            childAspectRatio: 0.675,
             mainAxisSpacing: 10,
           ),
           itemBuilder: (context, index) {
             if (index < movieTrend.length) {
-              return movieTrendTile(movieTrend[index], context);
+              return movieTrendTile(
+                context,
+                movieTrend[index],
+                MediaQuery.of(context).size.height / 3.9,
+                MediaQuery.of(context).size.width / 4,
+              );
             } else {
               Timer(const Duration(milliseconds: 30), () {
                 scrollController

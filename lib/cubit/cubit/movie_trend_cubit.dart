@@ -17,32 +17,31 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
 
   final MovieTrendRepository repository;
 
-  void loadMovieTrend(){
+  void loadMovieTrend() {
     if (state is MovieTrendLoading) return;
 
     final currentState = state;
 
-    var oldMovieTrend = <MovieTrendResult> [];
+    var oldMovieTrend = <MovieTrendResult>[];
 
-    if(currentState is MovieTrendLoaded){
-      log("panjang current stat = ${currentState.movieTrend.length}");
+    if (currentState is MovieTrendLoaded) {
       oldMovieTrend = currentState.movieTrend;
-      log("oldMovieTrend length = ${oldMovieTrend.length}");
     }
 
     emit(MovieTrendLoading(oldMovieTrend, isFirstFetch: page == 1));
 
-    repository.fetchMovieTrend(mediaType, timeWindow, page)
-      .then((newMovieTrend) {
-        page++;
-        // log("cubit");
-        log("page = $page");
-        // log("newMovieTrend length = ${newMovieTrend.length}");
-        final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
-        // log("movieTrend befoore length = ${movieTrend.length}");
-        movieTrend.addAll(newMovieTrend);
-        // log("movieTrend length = ${movieTrend.length}");
-        emit(MovieTrendLoaded(movieTrend));
-      });
+    repository
+        .fetchMovieTrend(mediaType, timeWindow, page)
+        .then((newMovieTrend) {
+      page++;
+      // log("cubit");
+      log("page = $page");
+      // log("newMovieTrend length = ${newMovieTrend.length}");
+      final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
+      // log("movieTrend befoore length = ${movieTrend.length}");
+      movieTrend.addAll(newMovieTrend);
+      // log("movieTrend length = ${movieTrend.length}");
+      emit(MovieTrendLoaded(movieTrend));
+    });
   }
 }

@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/common/text_header.dart';
-import '../widget/home/movie_latest_widget.dart';
 import '../widget/home/movie_trend_horizontal.dart';
 import 'movie_trend_screen.dart';
 

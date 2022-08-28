@@ -1,20 +1,24 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
+import 'package:fugi_movie_app_team_4/presentation/widget/common/image_loading.dart';
 
 import '../../../constant/global_variable.dart';
 
-Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
+Widget movieTrendTile(
+  BuildContext context,
+  MovieTrendResult movieTrend,
+  double height,
+  double width,
+) {
   String? title =
       (movieTrend.title != null) ? movieTrend.title : movieTrend.name;
   return InkWell(
     onTap: () {
-      log("id = ${movieTrend.id}");
-      log('${GlobalVariable.urlImage}${movieTrend.backdrop_path}');
+      // TODO: add function later
     },
     child: Container(
-      width: MediaQuery.of(context).size.width,
+      height: (MediaQuery.of(context).size.height / 3.9),
+      width: (MediaQuery.of(context).size.width / 4),
       margin: const EdgeInsets.all(4.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,21 +27,10 @@ Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
             alignment: Alignment.bottomCenter,
             children: [
               Center(
-                child: Image.network(
-                  '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
-                  loadingBuilder: (BuildContext context, Widget child,
-                      ImageChunkEvent? loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                            : null,
-                      ),
-                    );
-                  },
+                child: ImageLoading(
+                  url: '${GlobalVariable.urlImage}${movieTrend.poster_path}',
                 ),
+                // '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
               ),
               Text(
                 "$title",

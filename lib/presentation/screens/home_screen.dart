@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team_4/presentation/screens/movie_trend_screen.dart';
-import 'package:fugi_movie_app_team_4/presentation/widget/common/text_header.dart';
-import 'package:fugi_movie_app_team_4/presentation/widget/home/movie_trend_horizontal.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../widget/common/text_header.dart';
+import '../widget/home/movie_latest_widget.dart';
+import '../widget/home/movie_trend_horizontal.dart';
+import 'movie_trend_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
@@ -56,6 +58,10 @@ class HomeScreen extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             scrollDirection: Axis.vertical,
             children: [
+              // SizedBox(
+              //   height: 300,
+              // child: MovieLatestWidget(),
+              // ),
               // const SizedBox(
               //   width: 330,
               //   height: 48,
@@ -591,10 +597,9 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              // Nanti jadikan widget
-              SizedBox(
-                height: 300,
-                child: MovieTrendHorizontal(),
+              MovieTrendHorizontal(
+                height: MediaQuery.of(context).size.height / 3.9,
+                width: MediaQuery.of(context).size.width / 4,
               ),
             ],
           ),

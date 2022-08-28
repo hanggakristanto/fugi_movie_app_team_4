@@ -4,15 +4,18 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../constant/global_colors.dart';
-import '../../../constant/global_variable.dart';
 import '../../../cubit/cubit/movie_trend_cubit.dart';
 import '../../../data/model/movie_trend_result.dart';
 import '../common/loading_indicator.dart';
 import '../movie_trend/movie_trend_tile.dart';
 
 class MovieTrendHorizontal extends StatelessWidget {
-  MovieTrendHorizontal({Key? key}) : super(key: key);
+  final double height, width;
+  MovieTrendHorizontal({
+    Key? key,
+    required this.height,
+    required this.width,
+  }) : super(key: key);
 
   final scrollController = ScrollController();
 
@@ -30,16 +33,6 @@ class MovieTrendHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     setupScrollController(context);
     BlocProvider.of<MovieTrendCubit>(context).loadMovieTrend();
-
-    // return  Column(
-    //     children: [
-    //       Flexible(
-    //         flex: 1,
-    //         // child: _movieTrendGridList(),
-    //         child: Text('Nyobain'),
-    //       ),
-    //     ],
-    //   );
     return _movieHorizontalList();
   }
 
@@ -68,12 +61,14 @@ class MovieTrendHorizontal extends StatelessWidget {
           // shrinkWrap: true,
           controller: scrollController,
           itemBuilder: (context, index) {
-            if (index < movieTrend.length)
-            return movieTrendTile(movieTrend[index], context);
-            // return Image.network(
-            //     '${GlobalVariable.urlImage}${movieTrend[index].backdrop_path}',
-            //   );
-            else {
+            if (index < movieTrend.length) {
+              return movieTrendTile(
+                context,
+                movieTrend[index],
+                height,
+                width,
+              );
+            } else {
               Timer(const Duration(milliseconds: 30), () {
                 scrollController
                     .jumpTo(scrollController.position.maxScrollExtent);

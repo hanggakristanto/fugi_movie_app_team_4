@@ -78,8 +78,8 @@ class MovieTrendScreen extends StatelessWidget {
           ),
           itemCount: movieTrend.length + (isLoading ? 1 : 0),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.7,
+            crossAxisCount: 3,
+            childAspectRatio: 0.675,
             mainAxisSpacing: 10,
           ),
           itemBuilder: (context, index) {

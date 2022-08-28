@@ -22,8 +22,22 @@ Widget movieTrendTile(MovieTrendResult movieTrend, BuildContext context) {
           Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Image.network(
-                '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
+              Center(
+                child: Image.network(
+                  '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes!
+                            : null,
+                      ),
+                    );
+                  },
+                ),
               ),
               Text(
                 "$title",

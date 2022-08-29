@@ -10,13 +10,18 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
   final MultiSearchRepository repository;
   MultiSearchCubit(this.repository) : super(MultiSearchInitial());
 
-  String language = '';
-  String query = '';
+  // String language = '';
+  // String query = '';
   int page = 1;
-  String includeAdult = '';
-  String region = '';
+  // String includeAdult = '';
+  // String region = '';
 
-  void loadMultiSearch() {
+  void loadMultiSearch(
+    String language,
+    String query,
+    String includeAdult,
+    String region,
+  ) {
     if (state is MultiSearchLoading) return;
 
     final currentState = state;
@@ -32,15 +37,15 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     repository
         .fetchMovieTrend(language, query, page, includeAdult, region)
         .then((value) {
-          page++;
-          // log("cubit");
-          // log("page = $page");
-          // log("newMovieTrend length = ${newMovieTrend.length}");
-          final multiSearch = (state as MultiSearchLoading).oldMultiSearch;
-          // log("movieTrend befoore length = ${movieTrend.length}");
-          multiSearch.addAll(value);
-          // log("movieTrend length = ${movieTrend.length}");
-          emit(MultiSearchLoaded(multiSearch));
-        });
+      page++;
+      // log("cubit");
+      // log("page = $page");
+      // log("newMovieTrend length = ${newMovieTrend.length}");
+      final multiSearch = (state as MultiSearchLoading).oldMultiSearch;
+      // log("movieTrend befoore length = ${movieTrend.length}");
+      multiSearch.addAll(value);
+      // log("movieTrend length = ${movieTrend.length}");
+      emit(MultiSearchLoaded(multiSearch));
+    });
   }
 }

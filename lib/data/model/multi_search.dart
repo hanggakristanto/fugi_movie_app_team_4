@@ -10,8 +10,8 @@ abstract class MultiSearch with _$MultiSearch {
     const factory MultiSearch({
         required int page,
         required List<MultiSearchResult> results,
-        required int totalPages,
-        required int totalResults,
+        required int total_pages,
+        required int total_results,
     }) = _MultiSearch;
 
     factory MultiSearch.fromJson(Map<String, dynamic> json) => _$MultiSearchFromJson(json);

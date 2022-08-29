@@ -7,19 +7,19 @@ part 'multi_search_known_for.g.dart';
 abstract class MultiSearchKnownFor with _$MultiSearchKnownFor {
     const factory MultiSearchKnownFor({
         bool? adult,
-        String? backdropPath,
-        List<int>? genreIds,
+        String? backdrop_path,
+        List<int>? genre_ids,
         int? id,
-        String? mediaType,
-        String? originalLanguage,
-        String? originalTitle,
+        String? media_type,
+        String? original_language,
+        String? original_title,
         String? overview,
-        String? posterPath,
-        DateTime? releaseDate,
+        String? poster_path,
+        DateTime? release_date,
         String? title,
         bool? video,
-        double? voteAverage,
-        int? voteCount,
+        double? vote_average,
+        int? vote_count,
     }) = _MultiSearchKnownFor;
 
     factory MultiSearchKnownFor.fromJson(Map<String, dynamic> json) => _$MultiSearchKnownForFromJson(json);

@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team_4/presentation/screens/search_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widget/common/text_header.dart';
 import '../widget/home/movie_trend_horizontal.dart';
@@ -23,6 +26,14 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(
       context,
       MovieTrendScreen.routeName,
+    );
+  }
+
+  void navigateToSearchScreen(BuildContext context, String query) {
+    Navigator.pushNamed(
+      context,
+      SearchScreen.routeName,
+      arguments: query
     );
   }
 
@@ -55,64 +66,63 @@ class HomeScreen extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             scrollDirection: Axis.vertical,
             children: [
-              // SizedBox(
-              //   height: 300,
-              // child: MovieLatestWidget(),
-              // ),
-              // const SizedBox(
-              //   width: 330,
-              //   height: 48,
-              // ),
-              // Container(
-              //   padding: const EdgeInsets.only(left: 16, right: 16),
-              //   width: double.maxFinite,
-              //   height: 48,
-              //   decoration: BoxDecoration(
-              //     color: abusedang,
-              //     borderRadius: const BorderRadius.all(
-              //       Radius.circular(
-              //         25.0,
-              //       ),
-              //     ),
-              //   ),
-              //   child: Row(
-              //     children: [
-              //       Icon(
-              //         CupertinoIcons.search,
-              //         color: abutebel,
-              //         size: 20,
-              //       ),
-              //       const SizedBox(
-              //         width: 12,
-              //       ),
-              //       Expanded(
-              //         child: TextField(
-              //           keyboardType: TextInputType.text,
-              //           cursorColor: abutebel,
-              //           style: GoogleFonts.poppins(
-              //             color: abutebel,
-              //             fontSize: 13,
-              //             textStyle: Theme.of(context).textTheme.labelMedium,
-              //           ),
-              //           decoration: InputDecoration.collapsed(
-              //               hintText: 'Select Malls Or Branch',
-              //               hintStyle: TextStyle(
-              //                 fontSize: 13,
-              //                 color: abutebel,
-              //               )),
-              //         ),
-              //       ),
-              //       const SizedBox(
-              //         width: 12,
-              //       ),
-              //       Icon(
-              //         CupertinoIcons.slider_horizontal_3,
-              //         color: abutebel,
-              //         size: 20,
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              const SizedBox(
+                width: 330,
+                height: 48,
+              ),
+              Container(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                width: double.maxFinite,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      25.0,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.search,
+                      color: abutebel,
+                      size: 20,
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        onFieldSubmitted: (String value) {
+                          navigateToSearchScreen(context, value);
+                        },
+                        keyboardType: TextInputType.text,
+                        cursorColor: abutebel,
+                        style: GoogleFonts.poppins(
+                          color: abutebel,
+                          fontSize: 13,
+                          textStyle: Theme.of(context).textTheme.labelMedium,
+                        ),
+                        decoration: InputDecoration.collapsed(
+                            hintText: 'Search Movies',
+                            hintStyle: TextStyle(
+                              fontSize: 13,
+                              color: abutebel,
+                            )),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Icon(
+                      CupertinoIcons.slider_horizontal_3,
+                      color: abutebel,
+                      size: 20,
+                    ),
+                  ],
+                ),
+              ),
               // const SizedBox(
               //   height: 20,
               // ),
@@ -595,9 +605,9 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 3.9,
+                height: MediaQuery.of(context).size.height / 2.5,
                 child: MovieTrendHorizontal(
-                  height: MediaQuery.of(context).size.height / 3.9,
+                  height: MediaQuery.of(context).size.height / 2.5,
                   width: MediaQuery.of(context).size.width / 4,
                 ),
               ),

@@ -27,18 +27,23 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     bool isNew,
   ) {
     log('cubit $query');
-    if (state is MultiSearchLoading) return;
+    if (state is MultiSearchLoading) {
+      log('state = MultiSearchLoading');
+      return;
+    };
 
     final currentState = state;
 
     var oldMultiSearch = <MultiSearchResult>[];
 
     if (currentState is MultiSearchLoaded) {
-      log('MultiSearchLoaded');
-      oldMultiSearch = currentState.multiSearch;
+      log('MultiSearchLoaded panjang data lama = ${currentState.multiSearch.length}');
+        oldMultiSearch = currentState.multiSearch;
     }
 
     emit(MultiSearchLoading(oldMultiSearch, isFirstFetch: page == 1));
+
+    if (isNew) {page = 1;};
 
     repository
         .fetchMovieTrend(language, query, page, includeAdult, region)

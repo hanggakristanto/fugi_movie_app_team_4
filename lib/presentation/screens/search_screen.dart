@@ -172,6 +172,8 @@ class _SearchScreenState extends State<SearchScreen> {
             mainAxisSpacing: 10,
           ),
           itemBuilder: (context, index) {
+            // log('index = $index');
+            // log('panjang data = ${data.length}');
             if (index < data.length) {
               return multiSearchTile(
                 context,

@@ -14,7 +14,7 @@ class MultiSearchServices{
     String includeAdult,
     String region,
   ) async {
-    log('${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
+    // log('${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
     Uri uri = Uri.parse(
         '${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
       try {

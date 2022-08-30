@@ -58,6 +58,13 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   @override
+  void dispose(){
+    super.dispose();
+    log('dispose');
+    
+  }
+
+  @override
   Widget build(BuildContext context) {
     // String query = 'TOp';
     setupScrollController(context, query);

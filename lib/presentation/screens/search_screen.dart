@@ -33,8 +33,6 @@ class _SearchScreenState extends State<SearchScreen> {
   String query = '';
 
   void search(String q) {
-    //might require clear di state dan cubit
-    log('Search: $q');
     query = q;
     BlocProvider.of<MultiSearchCubit>(context)
         .loadMultiSearch('', query, '', '', true);
@@ -58,10 +56,8 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
-    log('dispose');
-    
   }
 
   @override
@@ -118,11 +114,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         textStyle: Theme.of(context).textTheme.labelMedium,
                       ),
                       decoration: const InputDecoration.collapsed(
-                          hintText: 'Search Movies',
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            color: GlobalColors.abutebel,
-                          )),
+                        hintText: 'Search Movies',
+                        hintStyle: TextStyle(
+                          fontSize: 13,
+                          color: GlobalColors.abutebel,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(

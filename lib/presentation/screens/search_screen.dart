@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,40 +12,79 @@ import '../../data/model/multi_search_result.dart';
 import '../widget/common/loading_indicator.dart';
 import '../widget/multi_search/multi_search_tile.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   static const String routeName = '/search_screen';
-  final String searchQuery;
-  SearchScreen({Key? key, required this.searchQuery}) : super(key: key);
+  // final Object searchQuery;
+  // final bool reStart;
+  final Map<String, dynamic> arg;
+  SearchScreen({Key? key, required this.arg, }) : super(key: key);
 
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  // static const String routeName = '/search_screen';
+  // final String searchQuery;
+  // SearchScreen({Key? key, required this.searchQuery}) : super(key: key);
   final scrollController = ScrollController();
+  bool restart = false;
+  String query = '';
 
-  void setupScrollController(context) {
+  void setupScrollController(context, String query) {
     scrollController.addListener(() {
       if (scrollController.position.atEdge) {
         if (scrollController.position.pixels != 0) {
-          BlocProvider.of<MultiSearchCubit>(context).loadMultiSearch('', searchQuery, '', '');
+          BlocProvider.of<MultiSearchCubit>(context)
+              .loadMultiSearch('', query, '', '');
         }
       }
     });
   }
 
+  void navigateToSearchScreen(BuildContext context, String query) {
+    Navigator.pushNamed(
+      context,
+      SearchScreen.routeName,
+      arguments: {
+        'query' : query, 
+        'restart' : true
+      }
+    );
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    log('initstate');
+    log(widget.arg.toString());
+    restart = widget.arg['restart'];
+    query = widget.arg['query'];
+  }
+
   @override
   Widget build(BuildContext context) {
-    setupScrollController(context);
-    BlocProvider.of<MultiSearchCubit>(context).loadMultiSearch('', searchQuery, '', '');
+    
+    // String query = 'TOp';
+    setupScrollController(context, query);
+    BlocProvider.of<MultiSearchCubit>(context)
+        .loadMultiSearch('', query, '', '');
 
     return Scaffold(
       backgroundColor: GlobalColors.gelap,
+      appBar: AppBar(
+        backgroundColor: GlobalColors.gelap,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),
         child: Column(
           children: [
-            const SizedBox(
-              width: 330,
-              height: 48,
-            ),
+            // const SizedBox(
+            //   width: 330,
+            //   height: 48,
+            // ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16),
               width: double.maxFinite,
@@ -71,8 +111,13 @@ class SearchScreen extends StatelessWidget {
                     child: TextFormField(
                       onFieldSubmitted: (String value) {
                         // navigateToSearchScreen(context, value);
+
+                        // BlocProvider.of<MultiSearchCubit>(context).loadMultiSearch('', searchQuery, '', '');
+                        setState(() {
+                          query = value;
+                        });
                       },
-                      initialValue:searchQuery,
+                      initialValue: query,
                       keyboardType: TextInputType.text,
                       cursorColor: GlobalColors.abutebel,
                       style: GoogleFonts.poppins(
@@ -157,7 +202,6 @@ class SearchScreen extends StatelessWidget {
             }
           },
         );
-
       }),
     );
   }

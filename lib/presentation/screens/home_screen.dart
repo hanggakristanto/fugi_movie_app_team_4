@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fugi_movie_app_team_4/presentation/screens/search_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../constant/global_colors.dart';
 import '../widget/common/text_header.dart';
 import '../widget/home/movie_trend_horizontal.dart';
 import 'movie_trend_screen.dart';
@@ -33,7 +34,10 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(
       context,
       SearchScreen.routeName,
-      arguments: query
+      arguments: {
+        'query' : query, 
+        'restart' : false
+      }
     );
   }
 
@@ -41,22 +45,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: gelap,
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   toolbarHeight: 40,
-      //   elevation: 0,
-      //   centerTitle: false,
-      //   title: Text(
-      //     'Select Branch',
-      //     style: GoogleFonts.poppins(
-      //       color: putih,
-      //       letterSpacing: 1,
-      //       fontSize: 16,
-      //       textStyle: Theme.of(context).textTheme.labelMedium,
-      //     ),
-      //   ),
-      //   leading: const Icon(CupertinoIcons.back),
-      // ),
+      appBar: AppBar(
+        backgroundColor: GlobalColors.gelap,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -66,10 +57,10 @@ class HomeScreen extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             scrollDirection: Axis.vertical,
             children: [
-              const SizedBox(
-                width: 330,
-                height: 48,
-              ),
+              // const SizedBox(
+              //   width: 330,
+              //   height: 48,
+              // ),
               Container(
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 width: double.maxFinite,

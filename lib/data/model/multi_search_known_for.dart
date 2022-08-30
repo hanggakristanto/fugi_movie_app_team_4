@@ -15,7 +15,7 @@ abstract class MultiSearchKnownFor with _$MultiSearchKnownFor {
         String? original_title,
         String? overview,
         String? poster_path,
-        DateTime? release_date,
+        String? release_date,
         String? title,
         bool? video,
         double? vote_average,

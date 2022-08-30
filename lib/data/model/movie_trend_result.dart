@@ -18,13 +18,13 @@ abstract class MovieTrendResult with _$MovieTrendResult {
         String? media_type,
         List<int>? genre_ids,
         double? popularity,
-        DateTime? release_date,
+        String? release_date,
         bool? video,
         double? vote_average,
         int? vote_count,
         String? name,
         String? original_name,
-        DateTime? first_air_date,
+        String? first_air_date,
         List<String>? origin_country,
     }) = _MovieTrendResult;
 

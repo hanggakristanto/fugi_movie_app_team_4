@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -22,6 +24,7 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     String includeAdult,
     String region,
   ) {
+    log(query);
     if (state is MultiSearchLoading) return;
 
     final currentState = state;

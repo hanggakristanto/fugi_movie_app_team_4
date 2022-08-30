@@ -15,11 +15,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => MovieTrendScreen(),
       );
     case SearchScreen.routeName:
-      var args = routeSettings.arguments as Map<String, dynamic>;
+      var args = routeSettings.arguments as String;
       return MaterialPageRoute(
         builder: (_) => SearchScreen(
-          arg: args,
-          // reStart: restart,
+          searchQuery: args,
         ),
       );
     default:

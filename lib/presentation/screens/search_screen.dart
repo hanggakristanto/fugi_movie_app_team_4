@@ -14,10 +14,11 @@ import '../widget/multi_search/multi_search_tile.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = '/search_screen';
-  // final Object searchQuery;
-  // final bool reStart;
-  final Map<String, dynamic> arg;
-  SearchScreen({Key? key, required this.arg, }) : super(key: key);
+  final String searchQuery;
+  SearchScreen({
+    Key? key,
+    required this.searchQuery,
+  }) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -31,44 +32,37 @@ class _SearchScreenState extends State<SearchScreen> {
   bool restart = false;
   String query = '';
 
+  void search(String q) {
+    //might require clear di state dan cubit
+    log('Search: $q');
+    query = q;
+    BlocProvider.of<MultiSearchCubit>(context)
+        .loadMultiSearch('', query, '', '', true);
+  }
+
   void setupScrollController(context, String query) {
     scrollController.addListener(() {
       if (scrollController.position.atEdge) {
         if (scrollController.position.pixels != 0) {
           BlocProvider.of<MultiSearchCubit>(context)
-              .loadMultiSearch('', query, '', '');
+              .loadMultiSearch('', query, '', '', false);
         }
       }
     });
   }
 
-  void navigateToSearchScreen(BuildContext context, String query) {
-    Navigator.pushNamed(
-      context,
-      SearchScreen.routeName,
-      arguments: {
-        'query' : query, 
-        'restart' : true
-      }
-    );
-  }
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    log('initstate');
-    log(widget.arg.toString());
-    restart = widget.arg['restart'];
-    query = widget.arg['query'];
+    query = widget.searchQuery;
   }
 
   @override
   Widget build(BuildContext context) {
-    
     // String query = 'TOp';
     setupScrollController(context, query);
     BlocProvider.of<MultiSearchCubit>(context)
-        .loadMultiSearch('', query, '', '');
+        .loadMultiSearch('', query, '', '', true);
 
     return Scaffold(
       backgroundColor: GlobalColors.gelap,
@@ -81,10 +75,6 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         child: Column(
           children: [
-            // const SizedBox(
-            //   width: 330,
-            //   height: 48,
-            // ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16),
               width: double.maxFinite,
@@ -110,12 +100,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   Expanded(
                     child: TextFormField(
                       onFieldSubmitted: (String value) {
-                        // navigateToSearchScreen(context, value);
-
-                        // BlocProvider.of<MultiSearchCubit>(context).loadMultiSearch('', searchQuery, '', '');
-                        setState(() {
-                          query = value;
-                        });
+                        search(value);
                       },
                       initialValue: query,
                       keyboardType: TextInputType.text,
@@ -166,11 +151,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
         if (state is MultiSearchLoading) {
           data = state.oldMultiSearch;
-          // log('Screen Trend Loading');
-          // print(movieTrend);
           isLoading = true;
         } else if (state is MultiSearchLoaded) {
-          // log('Screen Trend Loaded');
           data = state.multiSearch;
         }
         return GridView.builder(

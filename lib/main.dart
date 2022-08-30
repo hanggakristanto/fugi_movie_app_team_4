@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        title: 'Four Movie',
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) => generateRoute(settings),
         home: HomeScreen(),

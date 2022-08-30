@@ -34,10 +34,11 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(
       context,
       SearchScreen.routeName,
-      arguments: {
-        'query' : query, 
-        'restart' : false
-      }
+      arguments: query,
+      // arguments: {
+      //   'query' : query, 
+      //   'restart' : false
+      // }
     );
   }
 

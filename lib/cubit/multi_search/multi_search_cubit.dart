@@ -18,13 +18,15 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
   // String includeAdult = '';
   // String region = '';
 
+  //mungkin disini perlu dirubah
   void loadMultiSearch(
     String language,
     String query,
     String includeAdult,
     String region,
+    bool isNew,
   ) {
-    log(query);
+    log('cubit $query');
     if (state is MultiSearchLoading) return;
 
     final currentState = state;
@@ -32,6 +34,7 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     var oldMultiSearch = <MultiSearchResult>[];
 
     if (currentState is MultiSearchLoaded) {
+      log('MultiSearchLoaded');
       oldMultiSearch = currentState.multiSearch;
     }
 
@@ -43,11 +46,16 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
       page++;
       // log("cubit");
       // log("page = $page");
-      // log("newMovieTrend length = ${newMovieTrend.length}");
-      final multiSearch = (state as MultiSearchLoading).oldMultiSearch;
-      // log("movieTrend befoore length = ${movieTrend.length}");
-      multiSearch.addAll(value);
-      // log("movieTrend length = ${movieTrend.length}");
+      final multiSearch;
+      log('isNew = $isNew');
+      if (isNew){
+        multiSearch = value;
+      } else {
+        multiSearch = (state as MultiSearchLoading).oldMultiSearch;
+        log('panjang multi = ${multiSearch.length}');
+        multiSearch.addAll(value);
+      }
+      log('panjang multi final = ${multiSearch.length}');
       emit(MultiSearchLoaded(multiSearch));
     });
   }

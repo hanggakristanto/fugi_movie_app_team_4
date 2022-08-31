@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../constant/global_variable.dart';
 import '../../../data/model/multi_search_result.dart';
-import '../common/image_loading.dart';
 
 Widget multiSearchTile(
   BuildContext context,
@@ -23,23 +22,30 @@ Widget multiSearchTile(
       width: (MediaQuery.of(context).size.width / 4),
       margin: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(
-            url,
-          ),
-        ),
-      ),
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+              image: FadeInImage(
+                placeholder: AssetImage(
+                    "assets/images/cupertino_activity_indicator.gif"),
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  url,
+                ),
+                fadeInDuration: const Duration(milliseconds: 5),
+                fadeOutDuration: const Duration(milliseconds: 5),
+              ).image,
+              fit: BoxFit.cover)),
       child: (data.poster_path == null)
           ? Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
+              alignment: Alignment.bottomCenter,
+              child: Text(
                 "$title",
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-          )
+            )
           : Container(),
     ),
   );

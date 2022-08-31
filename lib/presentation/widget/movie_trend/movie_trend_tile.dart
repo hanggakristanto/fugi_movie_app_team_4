@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../../constant/global_variable.dart';
 import '../../../data/model/movie_trend_result.dart';
-import '../common/image_loading.dart';
 
 Widget movieTrendTile(
   BuildContext context,
-  MovieTrendResult movieTrend,
+  MovieTrendResult data,
   double height,
   double width,
 ) {
   String? title =
-      (movieTrend.title != null) ? movieTrend.title : movieTrend.name;
+      (data.title != null) ? data.title : data.name;
   String url = 
-    (movieTrend.poster_path != null)
-    ? '${GlobalVariable.urlImage}${movieTrend.poster_path}'
+    (data.poster_path != null)
+    ? '${GlobalVariable.urlImage}${data.poster_path}'
     : '${GlobalVariable.urlNoImage}';
   return InkWell(
     onTap: () {
@@ -25,36 +24,31 @@ Widget movieTrendTile(
       width: (MediaQuery.of(context).size.width / 4),
       margin: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        image: DecorationImage(
-          // TODO: loading indicator disini
-          image: NetworkImage(url,),
-        ),
-      ),
-
-      // child: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.start,
-      //   children: [
-      //     Stack(
-      //       alignment: Alignment.bottomCenter,
-      //       children: [
-      //         Center(
-      //           child: ImageLoading(
-      //             // url: '${GlobalVariable.urlImage}${movieTrend.poster_path}',
-      //             url: url,
-      //           ),
-      //         ),
-      //         Text(
-      //           "$title",
-      //           style: const TextStyle(
-      //             color: Colors.white,
-      //             fontWeight: FontWeight.bold,
-      //           ),
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
-
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+              image: FadeInImage(
+                placeholder: AssetImage(
+                    "assets/images/cupertino_activity_indicator.gif"),
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  url,
+                ),
+                fadeInDuration: const Duration(milliseconds: 5),
+                fadeOutDuration: const Duration(milliseconds: 5),
+              ).image,
+              fit: BoxFit.cover)),
+      child: (data.poster_path == null)
+          ? Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "$title",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
+          : Container(),
     ),
   );
 }

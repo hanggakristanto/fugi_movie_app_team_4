@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
-import 'package:fugi_movie_app_team_4/presentation/widget/common/image_loading.dart';
 
 import '../../../constant/global_variable.dart';
+import '../../../data/model/movie_trend_result.dart';
+import '../common/image_loading.dart';
 
 Widget movieTrendTile(
   BuildContext context,
@@ -30,7 +30,6 @@ Widget movieTrendTile(
                 child: ImageLoading(
                   url: '${GlobalVariable.urlImage}${movieTrend.poster_path}',
                 ),
-                // '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
               ),
               Text(
                 "$title",

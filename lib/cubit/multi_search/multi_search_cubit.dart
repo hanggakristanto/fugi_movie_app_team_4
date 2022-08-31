@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -20,7 +18,6 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
   var oldMultiSearch = <MultiSearchResult>[];
   var multiSearch = <MultiSearchResult>[];
 
-  //mungkin disini perlu dirubah
   void loadMultiSearch(
     String language,
     String query,
@@ -28,47 +25,29 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     String region,
     bool isNew,
   ) {
-    log('multisearch cubit $query');
     if (state is MultiSearchLoading) {
-      log('state = MultiSearchLoading');
       return;
     };
 
     final currentState = state;
 
-    // var oldMultiSearch = <MultiSearchResult>[];
-
     if (currentState is MultiSearchLoaded) {
-      log('MultiSearchLoaded panjang data lama = ${currentState.multiSearch.length}');
         oldMultiSearch = currentState.multiSearch;
     }
 
     emit(MultiSearchLoading(oldMultiSearch, isFirstFetch: page == 1));
 
-    // if (isNew) {page = 1;};
-
     repository
         .fetchMovieTrend(language, query, page, includeAdult, region)
         .then((value) {
       page++;
-      // log("cubit");
-      // log("page = $page");
-      // final multiSearch;
-      // log('isNew = $isNew');
-      // if (isNew){
-      //   multiSearch = value;
-      // } else {
         multiSearch = (state as MultiSearchLoading).oldMultiSearch;
-        log('panjang multi = ${multiSearch.length}');
         multiSearch.addAll(value);
-      // }
-      log('panjang multi final = ${multiSearch.length}');
       emit(MultiSearchLoaded(multiSearch));
     });
   }
 
   void resetMultiSearchLoaded () {
-    log('reset cubit');
     page = 1;
     oldMultiSearch = <MultiSearchResult>[];
     multiSearch = <MultiSearchResult>[];

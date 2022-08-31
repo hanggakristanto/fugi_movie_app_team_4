@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,28 +24,27 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  // static const String routeName = '/search_screen';
-  // final String searchQuery;
-  // SearchScreen({Key? key, required this.searchQuery}) : super(key: key);
   final scrollController = ScrollController();
   bool restart = false;
   String query = '';
 
   void search(String q) {
-    query = q;
+    setState(() {
+      query = q;
+    });
     scrollController.position.jumpTo(0);
-    BlocProvider.of<MultiSearchCubit>(context)
-        .resetMultiSearchLoaded();
+    BlocProvider.of<MultiSearchCubit>(context).resetMultiSearchLoaded();
     BlocProvider.of<MultiSearchCubit>(context)
         .loadMultiSearch('', query, '', '', true);
   }
 
-  void setupScrollController(context, String query) {
+  void setupScrollController(context, String q) {
+    setState(() {
+      query = q;
+    });
     scrollController.addListener(() {
       if (scrollController.position.atEdge) {
-        log('scroll di ujung');
         if (scrollController.position.pixels != 0) {
-          log('scroll ga nol');
           BlocProvider.of<MultiSearchCubit>(context)
               .loadMultiSearch('', query, '', '', false);
         }
@@ -67,7 +65,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // String query = 'TOp';
     setupScrollController(context, query);
     BlocProvider.of<MultiSearchCubit>(context)
         .loadMultiSearch('', query, '', '', true);
@@ -157,7 +154,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
         List<MultiSearchResult> data = [];
         bool isLoading = false;
-
         if (state is MultiSearchLoading) {
           data = state.oldMultiSearch;
           isLoading = true;
@@ -177,8 +173,6 @@ class _SearchScreenState extends State<SearchScreen> {
             mainAxisSpacing: 10,
           ),
           itemBuilder: (context, index) {
-            // log('index = $index');
-            // log('panjang data = ${data.length}');
             if (index < data.length) {
               return multiSearchTile(
                 context,

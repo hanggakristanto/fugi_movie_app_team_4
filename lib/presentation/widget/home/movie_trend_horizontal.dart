@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,17 +47,13 @@ class MovieTrendHorizontal extends StatelessWidget {
 
         if (state is MovieTrendLoading) {
           movieTrend = state.oldMovieTrend;
-          log('Screen Trend Loading');
-          // print(movieTrend);
           isLoading = true;
         } else if (state is MovieTrendLoaded) {
-          log('Screen Trend Loaded');
           movieTrend = state.movieTrend;
         }
 
         return ListView.builder(
           scrollDirection: Axis.horizontal,
-          // shrinkWrap: true,
           controller: scrollController,
           itemBuilder: (context, index) {
             if (index < movieTrend.length) {

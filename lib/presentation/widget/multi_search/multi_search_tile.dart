@@ -32,10 +32,6 @@ Widget multiSearchTile(
                     url: '${GlobalVariable.urlImage}${data.poster_path}',
                   )
                 : const Text('No Image Available', style: TextStyle(color: Colors.white),)
-                // child: ImageLoading(
-                //   url: '${GlobalVariable.urlImage}${data.poster_path}',
-                // ),
-                // '${GlobalVariable.urlImage}${movieTrend.backdrop_path}',
               ),
               Text(
                 "$title",

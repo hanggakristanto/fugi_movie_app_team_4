@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
@@ -24,10 +23,8 @@ class MultiSearchServices{
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      // log('MultiSearchServices');
-      // log(res.body);
-      var data = jsonDecode(res.body)['results'];
-      return data as List<dynamic>;
+      var data = jsonDecode(res.body)['results'] as List<dynamic>;
+      return data;
       } catch (e){
         throw Exception(e);
       }

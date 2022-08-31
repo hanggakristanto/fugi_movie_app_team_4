@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team_4/presentation/screens/search_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant/global_colors.dart';
 import '../widget/common/text_header.dart';
 import '../widget/home/movie_trend_horizontal.dart';
 import 'movie_trend_screen.dart';
+import 'search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
@@ -36,10 +36,6 @@ class HomeScreen extends StatelessWidget {
       context,
       SearchScreen.routeName,
       arguments: query,
-      // arguments: {
-      //   'query' : query, 
-      //   'restart' : false
-      // }
     ).then((value) => query = '');
   }
 

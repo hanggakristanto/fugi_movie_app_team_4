@@ -34,6 +34,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   void search(String q) {
     query = q;
+    scrollController.position.jumpTo(0);
+    BlocProvider.of<MultiSearchCubit>(context)
+        .resetMultiSearchLoaded();
     BlocProvider.of<MultiSearchCubit>(context)
         .loadMultiSearch('', query, '', '', true);
   }
@@ -41,7 +44,9 @@ class _SearchScreenState extends State<SearchScreen> {
   void setupScrollController(context, String query) {
     scrollController.addListener(() {
       if (scrollController.position.atEdge) {
+        log('scroll di ujung');
         if (scrollController.position.pixels != 0) {
+          log('scroll ga nol');
           BlocProvider.of<MultiSearchCubit>(context)
               .loadMultiSearch('', query, '', '', false);
         }

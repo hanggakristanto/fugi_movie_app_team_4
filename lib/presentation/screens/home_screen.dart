@@ -10,6 +10,7 @@ import 'movie_trend_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
+  final String query = '';
 
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
       //   'query' : query, 
       //   'restart' : false
       // }
-    );
+    ).then((value) => query = '');
   }
 
   @override
@@ -89,6 +90,7 @@ class HomeScreen extends StatelessWidget {
                         onFieldSubmitted: (String value) {
                           navigateToSearchScreen(context, value);
                         },
+                        initialValue: query,
                         keyboardType: TextInputType.text,
                         cursorColor: abutebel,
                         style: GoogleFonts.poppins(

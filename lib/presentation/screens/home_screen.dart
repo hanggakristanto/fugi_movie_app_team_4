@@ -595,9 +595,9 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 2.5,
+                height: MediaQuery.of(context).size.height / 3.9,
                 child: MovieTrendHorizontal(
-                  height: MediaQuery.of(context).size.height / 2.5,
+                  height: MediaQuery.of(context).size.height / 3.9,
                   width: MediaQuery.of(context).size.width / 4,
                 ),
               ),

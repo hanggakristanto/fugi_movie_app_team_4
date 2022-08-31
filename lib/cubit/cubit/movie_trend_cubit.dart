@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:fugi_movie_app_team_4/data/model/movie_trend_result.dart';
 import 'package:meta/meta.dart';
 
+import '../../data/model/movie_trend_result.dart';
 import '../../data/repositories/movie_trend_repository.dart';
 
 part 'movie_trend_state.dart';
@@ -34,13 +32,8 @@ class MovieTrendCubit extends Cubit<MovieTrendState> {
         .fetchMovieTrend(mediaType, timeWindow, page)
         .then((newMovieTrend) {
       page++;
-      // log("cubit");
-      log("page = $page");
-      // log("newMovieTrend length = ${newMovieTrend.length}");
       final movieTrend = (state as MovieTrendLoading).oldMovieTrend;
-      // log("movieTrend befoore length = ${movieTrend.length}");
       movieTrend.addAll(newMovieTrend);
-      // log("movieTrend length = ${movieTrend.length}");
       emit(MovieTrendLoaded(movieTrend));
     });
   }

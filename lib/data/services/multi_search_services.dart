@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
@@ -14,7 +13,7 @@ class MultiSearchServices{
     String includeAdult,
     String region,
   ) async {
-    log('${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
+    // log('${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
     Uri uri = Uri.parse(
         '${GlobalVariable.url}/search/multi?api_key=${ApiKey.APIKEY}&page=$page&language=${language}&query=${query}&include_adult=${includeAdult}');
       try {
@@ -24,10 +23,8 @@ class MultiSearchServices{
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      // log('MultiSearchServices');
-      // log(res.body);
-      var data = jsonDecode(res.body)['results'];
-      return data as List<dynamic>;
+      var data = jsonDecode(res.body)['results'] as List<dynamic>;
+      return data;
       } catch (e){
         throw Exception(e);
       }

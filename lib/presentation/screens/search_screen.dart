@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,27 +24,29 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  // static const String routeName = '/search_screen';
-  // final String searchQuery;
-  // SearchScreen({Key? key, required this.searchQuery}) : super(key: key);
   final scrollController = ScrollController();
   bool restart = false;
   String query = '';
 
   void search(String q) {
-    //might require clear di state dan cubit
-    log('Search: $q');
-    query = q;
+    setState(() {
+      query = q;
+    });
+    scrollController.position.jumpTo(0);
+    BlocProvider.of<MultiSearchCubit>(context).resetMultiSearchLoaded();
     BlocProvider.of<MultiSearchCubit>(context)
-        .loadMultiSearch('', query, '', '', true);
+        .loadMultiSearch('', query, '', '');
   }
 
-  void setupScrollController(context, String query) {
+  void setupScrollController(context, String q) {
+    setState(() {
+      query = q;
+    });
     scrollController.addListener(() {
       if (scrollController.position.atEdge) {
         if (scrollController.position.pixels != 0) {
           BlocProvider.of<MultiSearchCubit>(context)
-              .loadMultiSearch('', query, '', '', false);
+              .loadMultiSearch('', query, '', '');
         }
       }
     });
@@ -58,18 +59,15 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
-    log('dispose');
-    
   }
 
   @override
   Widget build(BuildContext context) {
-    // String query = 'TOp';
     setupScrollController(context, query);
     BlocProvider.of<MultiSearchCubit>(context)
-        .loadMultiSearch('', query, '', '', true);
+        .loadMultiSearch('', query, '', '');
 
     return Scaffold(
       backgroundColor: GlobalColors.gelap,
@@ -118,11 +116,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         textStyle: Theme.of(context).textTheme.labelMedium,
                       ),
                       decoration: const InputDecoration.collapsed(
-                          hintText: 'Search Movies',
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            color: GlobalColors.abutebel,
-                          )),
+                        hintText: 'Search Movies',
+                        hintStyle: TextStyle(
+                          fontSize: 13,
+                          color: GlobalColors.abutebel,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -155,7 +154,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
         List<MultiSearchResult> data = [];
         bool isLoading = false;
-
         if (state is MultiSearchLoading) {
           data = state.oldMultiSearch;
           isLoading = true;

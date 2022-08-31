@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fugi_movie_app_team_4/presentation/screens/search_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant/global_colors.dart';
 import '../widget/common/text_header.dart';
 import '../widget/home/movie_trend_horizontal.dart';
 import 'movie_trend_screen.dart';
+import 'search_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
+  final String query = '';
 
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -35,11 +36,7 @@ class HomeScreen extends StatelessWidget {
       context,
       SearchScreen.routeName,
       arguments: query,
-      // arguments: {
-      //   'query' : query, 
-      //   'restart' : false
-      // }
-    );
+    ).then((value) => query = '');
   }
 
   @override
@@ -89,6 +86,7 @@ class HomeScreen extends StatelessWidget {
                         onFieldSubmitted: (String value) {
                           navigateToSearchScreen(context, value);
                         },
+                        initialValue: query,
                         keyboardType: TextInputType.text,
                         cursorColor: abutebel,
                         style: GoogleFonts.poppins(

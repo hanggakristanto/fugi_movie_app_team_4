@@ -23,7 +23,6 @@ class MultiSearchCubit extends Cubit<MultiSearchState> {
     String query,
     String includeAdult,
     String region,
-    bool isNew,
   ) {
     if (state is MultiSearchLoading) {
       return;

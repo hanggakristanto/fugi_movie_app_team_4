@@ -35,7 +35,7 @@ class _SearchScreenState extends State<SearchScreen> {
     scrollController.position.jumpTo(0);
     BlocProvider.of<MultiSearchCubit>(context).resetMultiSearchLoaded();
     BlocProvider.of<MultiSearchCubit>(context)
-        .loadMultiSearch('', query, '', '', true);
+        .loadMultiSearch('', query, '', '');
   }
 
   void setupScrollController(context, String q) {
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
       if (scrollController.position.atEdge) {
         if (scrollController.position.pixels != 0) {
           BlocProvider.of<MultiSearchCubit>(context)
-              .loadMultiSearch('', query, '', '', false);
+              .loadMultiSearch('', query, '', '');
         }
       }
     });
@@ -67,7 +67,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     setupScrollController(context, query);
     BlocProvider.of<MultiSearchCubit>(context)
-        .loadMultiSearch('', query, '', '', true);
+        .loadMultiSearch('', query, '', '');
 
     return Scaffold(
       backgroundColor: GlobalColors.gelap,

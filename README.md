@@ -74,9 +74,9 @@ Bila tidak paham ini apa silahkan cari aplikasi soal build runner flutter di int
 
 
 ### 📷  **Screenshots**
- <!-- ![Main Screen](/screenshoot/MainScreen.png?raw=true "Main Screen")
+ ![Main Screen](/screenshoot/MainScreen.png?raw=true=400*300 "Main Screen" )
 
- ![Search screen](/screenshoot/SearchScreen.png?raw=true "Search Screen") -->
+ ![Search screen](/screenshoot/SearchScreen.png?raw=true=400*300 "Search Screen")
 
   <img
     src="/screenshoot/MainScreen.png"

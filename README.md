@@ -82,4 +82,4 @@ Bila tidak paham ini apa silahkan cari aplikasi soal build runner flutter di int
     src="/screenshoot/MainScreen.png"
     alt="Main Screen"
     title="Main Screen"
-    style="display: inline-block; margin: 0 auto; max-width: 50; max-height: 100px">
+    style="display: inline-block; margin: 0 auto; width: 50; height: 100px">

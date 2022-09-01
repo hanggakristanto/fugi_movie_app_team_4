@@ -74,8 +74,8 @@ Bila tidak paham ini apa silahkan cari aplikasi soal build runner flutter di int
 
 
 ### 📷  **Screenshots**
- ![Alt text](/screenshoot/MainScreen.jpg?raw=true "Main Screen")
- ![Alt text](/relative/screenshoot/SearchScreen.jpg?raw=true "Search Screen")
+ ![Main Screen](/relative/path/to/screenshoot/MainScreen.jpg?raw=true "Main Screen")
+ ![Search screen](/relative/screenshoot/SearchScreen.jpg?raw=true "Search Screen")
  ![](assets/16618334071160.jpg)
 
 

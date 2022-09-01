@@ -8,20 +8,36 @@ import '../widget/home/movie_trend_horizontal.dart';
 import 'movie_trend_screen.dart';
 import 'search_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'package:provider/provider.dart';
+import '../../provider/data_class.dart';
+import '../../provider/data_model.dart';
+
+class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
-  final String query = '';
 
   const HomeScreen({Key? key}) : super(key: key);
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final String query = '';
+
   final Color jingga = const Color.fromRGBO(217, 134, 57, 1);
+
   final Color gelap = const Color.fromRGBO(30, 31, 39, 1);
+
   final Color abu = const Color.fromRGBO(196, 196, 196, 1);
+
   final Color abusedang = const Color.fromRGBO(90, 90, 92, 1);
+
   final Color abutebel = const Color.fromRGBO(141, 141, 143, 1);
 
   final Color abugelap = const Color.fromRGBO(72, 71, 71, 1);
+
   final Color kuning = const Color.fromRGBO(241, 222, 48, 1);
+
   final Color putih = Colors.white;
 
   void navigateToMovieScreen(BuildContext context) {
@@ -29,6 +45,13 @@ class HomeScreen extends StatelessWidget {
       context,
       MovieTrendScreen.routeName,
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    final postModel = Provider.of<DataClass>(context, listen: false);
+    postModel.getPostData();
   }
 
   void navigateToSearchScreen(BuildContext context, String query) {
@@ -41,6 +64,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final postModel = Provider.of<DataClass>(context);
     return Scaffold(
       backgroundColor: gelap,
       appBar: AppBar(
@@ -592,13 +616,203 @@ class HomeScreen extends StatelessWidget {
                 }),
               ),
               const SizedBox(
-                height: 20,
+                height: 5,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 3.9,
                 child: MovieTrendHorizontal(
                   height: MediaQuery.of(context).size.height / 3.9,
                   width: MediaQuery.of(context).size.width / 4,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Lates ',
+                style: GoogleFonts.poppins(
+                  color: putih,
+                  fontSize: 16,
+                  textStyle: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.only(
+                  right: 16,
+                ),
+                height: 113.0,
+                width: double.maxFinite,
+                decoration: BoxDecoration(
+                  color: abusedang,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10.0,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 113.0,
+                      width: 113,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: const NetworkImage(
+                            "https://picsum.photos/2026",
+                          ),
+                          filterQuality: FilterQuality.high,
+                          repeat: ImageRepeat.noRepeat,
+                          onError: (exception, stackTrace) =>
+                              const CircularProgressIndicator.adaptive(),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(
+                            10.0,
+                          ),
+                          bottomLeft: Radius.circular(
+                            10.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 120,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Row(
+                            //   children: [
+                            //     Text(
+                            //       postModel.post?.title ?? "",
+                            //       // 'tes',
+                            //       style: GoogleFonts.poppins(
+                            //         letterSpacing: 1,
+                            //         color: putih,
+                            //         fontSize: 13,
+                            //         textStyle:
+                            //             Theme.of(context).textTheme.labelMedium,
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    width: 160,
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Text(
+                                        postModel.post?.title ?? "",
+                                        // "Non eiusmod exercitation aliqua irure. Est exercitation incididunt nulla mollit commodo sit qui velit adipisicing proident.",
+                                        maxLines: 1,
+                                        softWrap: false,
+                                        style: GoogleFonts.poppins(
+                                          letterSpacing: 1,
+                                          color: putih,
+                                          fontSize: 13,
+                                          textStyle: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 18,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  CupertinoIcons.ticket,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  postModel.post?.budget.toString() ?? "",
+                                  // 'tes',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.chair,
+                                  color: putih,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  postModel.post?.runtime.toString() ?? "",
+                                  // 'tes',
+                                  style: GoogleFonts.poppins(
+                                    letterSpacing: 1,
+                                    color: putih,
+                                    fontSize: 10,
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 300,
+                      top: 10,
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.star_fill,
+                            color: kuning,
+                            size: 13,
+                          ),
+                          const SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            postModel.post?.popularity.toString() ?? "",
+                            // 'tes',
+                            style: GoogleFonts.poppins(
+                              letterSpacing: 1,
+                              color: putih,
+                              fontSize: 13,
+                              textStyle:
+                                  Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],

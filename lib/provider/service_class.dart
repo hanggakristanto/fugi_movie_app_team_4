@@ -16,7 +16,7 @@ Future<DataModel?> getSinglePostData() async {
         HttpHeaders.contentTypeHeader: "application/json",
       },
     );
-    print(response.body);
+    // print(response.body);
     if (response.statusCode == 200) {
       final item = json.decode(response.body);
       result = DataModel.fromJson(item);
@@ -24,7 +24,7 @@ Future<DataModel?> getSinglePostData() async {
       print("error");
     }
   } catch (e) {
-    log(e.toString());
+    // log(e.toString());
   }
   return result;
 }

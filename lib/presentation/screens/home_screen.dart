@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,6 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final Color putih = Colors.white;
 
+  var _searchController = TextEditingController();
+
   void navigateToMovieScreen(BuildContext context) {
     Navigator.pushNamed(
       context,
@@ -52,6 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     final postModel = Provider.of<DataClass>(context, listen: false);
     postModel.getPostData();
+    _searchController.text = '';
+  }
+
+  @override
+  void dispose(){
+    super.dispose();
+    _searchController.dispose();
   }
 
   void navigateToSearchScreen(BuildContext context, String query) {
@@ -59,7 +70,11 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       SearchScreen.routeName,
       arguments: query,
-    ).then((value) => query = '');
+    ).then((value) {
+      setState(() {
+        _searchController.text = query = '';
+      });
+    });
   }
 
   @override
@@ -107,10 +122,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: TextFormField(
+                        controller: _searchController,
                         onFieldSubmitted: (String value) {
-                          navigateToSearchScreen(context, value);
+                          navigateToSearchScreen(context, _searchController.text);
                         },
-                        initialValue: query,
+                        // initialValue: query,
                         keyboardType: TextInputType.text,
                         cursorColor: abutebel,
                         style: GoogleFonts.poppins(

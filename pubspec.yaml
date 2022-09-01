@@ -39,6 +39,7 @@ dependencies:
   card_swiper: ^2.0.4
   flutter_bloc: ^8.1.1
   freezed: ^2.1.0+1
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:

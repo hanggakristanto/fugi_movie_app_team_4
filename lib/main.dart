@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fugi_movie_app_team_4/data/repositories/multi_search_repository.dart';
 import 'package:fugi_movie_app_team_4/data/services/multi_search_services.dart';
+import 'package:fugi_movie_app_team_4/provider/data_class.dart';
+import 'package:provider/provider.dart';
 
 import 'cubit/cubit/movie_trend_cubit.dart';
 import 'cubit/multi_search/multi_search_cubit.dart';
@@ -9,6 +11,9 @@ import 'data/repositories/movie_trend_repository.dart';
 import 'data/services/movie_trend_services.dart';
 import 'presentation/screens/home_screen.dart';
 import 'router.dart';
+
+import '../provider/data_class.dart';
+import '../provider/data_model.dart';
 
 void main() {
   runApp(
@@ -35,21 +40,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => MovieTrendCubit(repository),
+    return ChangeNotifierProvider(
+      create: (context) => DataClass(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => MovieTrendCubit(repository),
+          ),
+          BlocProvider(
+            create: (context) => MultiSearchCubit(multiSearchRepository),
+          ),
+        ],
+        child: MaterialApp(
+          title: 'Four Movie',
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: (settings) => generateRoute(settings),
+          home: HomeScreen(),
+          // home: HomePage(),
         ),
-        BlocProvider(
-          create: (context) => MultiSearchCubit(multiSearchRepository),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Four Movie',
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: (settings) => generateRoute(settings),
-        home: HomeScreen(),
-        // home: HomePage(),
       ),
     );
   }

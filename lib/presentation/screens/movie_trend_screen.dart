@@ -8,6 +8,7 @@ import '../../cubit/cubit/movie_trend_cubit.dart';
 import '../../data/model/movie_trend_result.dart';
 import '../widget/common/loading_indicator.dart';
 import '../widget/movie_trend/movie_trend_tile.dart';
+import 'detail_screen.dart';
 
 class MovieTrendScreen extends StatelessWidget {
   static const String routeName = '/movie_trend_screen';
@@ -24,6 +25,13 @@ class MovieTrendScreen extends StatelessWidget {
         }
       }
     });
+  }
+
+  void navigateToDetailScreen(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      DetailScreen.routeName,
+    );
   }
 
   @override
@@ -79,10 +87,11 @@ class MovieTrendScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             if (index < movieTrend.length) {
               return movieTrendTile(
-                context,
-                movieTrend[index],
-                MediaQuery.of(context).size.height / 3.9,
-                MediaQuery.of(context).size.width / 4,
+                context: context,
+                data: movieTrend[index],
+                height: MediaQuery.of(context).size.height / 3.9,
+                width: MediaQuery.of(context).size.width / 4,
+                onTap:() => navigateToDetailScreen(context),
               );
             } else {
               Timer(const Duration(milliseconds: 30), () {

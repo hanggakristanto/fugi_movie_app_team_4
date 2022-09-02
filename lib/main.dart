@@ -12,9 +12,6 @@ import 'data/services/movie_trend_services.dart';
 import 'presentation/screens/home_screen.dart';
 import 'router.dart';
 
-import '../provider/data_class.dart';
-import '../provider/data_model.dart';
-
 void main() {
   runApp(
     MyApp(
@@ -56,7 +53,6 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: (settings) => generateRoute(settings),
           home: HomeScreen(),
-          // home: HomePage(),
         ),
       ),
     );

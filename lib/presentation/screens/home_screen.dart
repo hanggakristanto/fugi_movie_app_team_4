@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team_4/constant/global_variable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant/global_colors.dart';
@@ -676,8 +677,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 113,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: const NetworkImage(
-                            "https://picsum.photos/2026",
+                          image: NetworkImage(
+                            GlobalVariable.urlNoImage,
                           ),
                           filterQuality: FilterQuality.high,
                           repeat: ImageRepeat.noRepeat,

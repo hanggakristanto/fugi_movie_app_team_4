@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../cubit/cubit/movie_trend_cubit.dart';
 import '../../../data/model/movie_trend_result.dart';
+import '../../screens/detail_screen.dart';
 import '../common/loading_indicator.dart';
 import '../movie_trend/movie_trend_tile.dart';
 
@@ -26,6 +28,14 @@ class MovieTrendHorizontal extends StatelessWidget {
         }
       }
     });
+  }
+
+  void navigateToDetailScreen(BuildContext context) {
+    log('ditap');
+    Navigator.pushNamed(
+      context,
+      DetailScreen.routeName,
+    );
   }
 
   @override
@@ -58,10 +68,11 @@ class MovieTrendHorizontal extends StatelessWidget {
           itemBuilder: (context, index) {
             if (index < movieTrend.length) {
               return movieTrendTile(
-                context,
-                movieTrend[index],
-                height,
-                width,
+                context: context,
+                data: movieTrend[index],
+                height: height,
+                width: width,
+                onTap:() => navigateToDetailScreen(context),
               );
             } else {
               Timer(const Duration(milliseconds: 30), () {

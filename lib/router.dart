@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fugi_movie_app_team_4/presentation/screens/detail_screen.dart';
 import 'package:fugi_movie_app_team_4/presentation/screens/movie_trend_screen.dart';
 import 'package:fugi_movie_app_team_4/presentation/screens/search_screen.dart';
 
@@ -20,6 +21,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => SearchScreen(
           searchQuery: args,
         ),
+      );
+    case DetailScreen.routeName:
+      return MaterialPageRoute(
+        builder: (_) => DetailScreen(),
       );
     default:
       return MaterialPageRoute(
